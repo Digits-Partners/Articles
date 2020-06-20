@@ -2,7 +2,7 @@ NB: Here we assume that readers of this section are aleady familiar with neural 
 If it is not the case don't worry! we have prepared some awsome references for you to get started :)
 
 # Sequence-to-Sequnce neural networks architectures
-## Introduction
+## Introduction 
 
 In order to deal with series of structured/unstructured data, we need to capture each granular sequence within the data serie. Most importantly, we need to keep track of the previous/next sequences. This is because, within the data serie, we know that each sequence is likely dependent on one or many other sequence(s). Hence it is crucial to accurately reflect this kind of dependencies relationship.
 
