@@ -24,7 +24,7 @@ Most of these situations are adressed through a supervised learning problem, ie 
 
 In this post we will focus on NLP techniques to illustrate how RNNs can be used to handle text content where inputs and outputs can be different lenghts across different examples and how RNNs allow features sharing across diffrent positions of the text (elements learned from one piece of a text, can generalize to the susequent parts of same text).
 
-## Representation and notations
+## Representation and notations 
 
 First we need to care about the words representation (inputs and/or outputs)
 
