@@ -63,7 +63,7 @@ Observations:
 - Unidirectional RNNs does not look ahead for information that comes later in the sequence. It only incorporates information from previous time steps. 
 
 In particular if you need to get the full picture of a data serie before predicting the result for each time t, then the Bidirectional recursive neural networks (BRNN) architecture is more suitable.
-w
+
 ## Bidirectional recursive neural networks (BRNN)
 
 ## Long short term model (LSTM)
