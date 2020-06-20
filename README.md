@@ -47,7 +47,7 @@ h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
 ## Unidirectional recursive neural networks (RNN)
 
 <p align="center">
-   <img  src="/items/rnn.png">
+   <img  src="./rnn.png">
 </p>
 
 Observations:
