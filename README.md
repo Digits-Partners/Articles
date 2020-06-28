@@ -75,7 +75,7 @@ Observations:
 
 - The architecture illustrated above assumes equal length for inputs and outputs, that is (T<sub>x</sub> = T<sub>y</sub>). If it is not the case then use padding techniques to ensure that this assumption continues to hold;
 
-- Unidirectional RNNs does not look ahead for information that comes later in the sequence. It only incorporates information from previous time steps. 
+- One drawback of unidirectional RNNs is that for a given time t, it does not look ahead for information that comes later in the sequence. It only incorporates previous information from earlier time steps. 
 
 In particular if you need to get the full picture of a data serie before predicting the result for each time t, then the Bidirectional recursive neural networks (BRNN) architecture is more suitable.
 
