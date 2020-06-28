@@ -99,7 +99,7 @@ The Gated Recurrent Units (GRU) model is a variation of the RNN model, it has be
    
    - G<sup>\<u\><sup> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>)
    
-   - c<sup>\<t\><sup> = G<sub>\<u\><sub>c-tilda<sup>\<t\><sup> + (1-G<sub>\<u\><sub>)c<sup>\<t-1\><sup>
+   - c<sup>\<t\><sup> = G<sub>\<u\><sub> c-tilda<sup>\<t\><sup> + (1-G<sub>\<u\><sub>) c<sup>\<t-1\><sup>
 
 ## Attention model
 
