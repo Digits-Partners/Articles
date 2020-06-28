@@ -36,10 +36,10 @@ First we need to care about the words representation (inputs and/or outputs)
 | :--- | :--- |
 | (X,Y) | Pair X and Y of labeled data from the training set examples |
 | Y^ | Predicted element given an input X |
-| T<sub>x</sub><sup>(i)</sup> | the length of the sequence in the i<sup>th</sup> input training example|
-| T<sub>y</sub><sup>(i)</sup> | the length of the sequence in the i<sup>th</sup> output training example||
-| X<sup>(i)\<t\></sup> | the t<sup>th</sup> element/sequence in the i<sup>th</sup> input training example |
-| Y<sup>(i)\<t\></sup> |the t<sup>th</sup> element/sequence in the i<sup>th</sup> output training example |
+| T<sub>x</sub><sup>(i)</sup> | the length of the sequence in the i<sup>th</sup> training example input |
+| T<sub>y</sub><sup>(i)</sup> | the length of the sequence in the i<sup>th</sup> training example output|
+| X<sup>(i)\<t\></sup> | the t<sup>th</sup> element/sequence in the i<sup>th</sup> training example input|
+| Y<sup>(i)\<t\></sup> |the t<sup>th</sup> element/sequence in the i<sup>th</sup> training example output|
 
 h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x  
 
