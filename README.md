@@ -46,8 +46,6 @@ First we need to care about the words representation (inputs and/or outputs)
 | X<sup>(i)\<t\></sup> | The t<sup>th</sup> element/sequence in the i<sup>th</sup> training example input|
 | Y<sup>(i)\<t\></sup> |The t<sup>th</sup> element/sequence in the i<sup>th</sup> training example output|
    
-h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x  
-
 
 ## Unidirectional recursive neural networks (RNN)
 
