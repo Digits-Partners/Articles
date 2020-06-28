@@ -32,6 +32,8 @@ First we need to care about the words representation (inputs and/or outputs)
 
 - Step2: Each word is represented by a (one-hot) vector of same size as the dictionary. Set 1 at the position where the word matches the dictionary entry and 0 eslewhere. This is simply a binary projection of the word on the dictionnay space.
 
+- Step3: Each (one-hot) vector from step2 is represented within a word embending space (dimentionality reduction techniques). 
+
 | Notation | Description |
 | :--- | :--- |
 | (X,Y) | Pair X and Y of labeled data from the training set examples |
