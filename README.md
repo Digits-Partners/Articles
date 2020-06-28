@@ -71,9 +71,9 @@ Observations:
 - The activation values are calculated through a forward propagation process governed by the following equations:
    - a<sup>\<t\></sup> = g<sub>1</sub>(W<sub>aa</sub>a<sup>\<t-1\></sup> + W<sub>ax</sub>X<sup>\<t-1\></sup>  + b<sub>a</sub>);
    - y^<sup>\<t\></sup> = g<sub>2</sub>(W<sub>ya</sub>a<sup>\<t\></sup> + b<sub>y</sub>);
-   - The g<sub>1</sub> and g<sub>2</sub> functions may differ from each other. Generally we use tanh, ReLU, sigmoid.
+   - The g<sub>1</sub> and g<sub>2</sub> may differ from each other. Generally we use functions such as tanh, ReLU and sigmoid.
 
-- The architecture illustrated above assumes that inputs and outputs length are equal (T<sub>x</sub> = T<sub>y</sub>). if it is not the case then use padding techniques to ensure that this assumption continues to hold;
+- The architecture illustrated above assumes equal length for inputs and outputs, that is (T<sub>x</sub> = T<sub>y</sub>). If it is not the case then use padding techniques to ensure that this assumption continues to hold;
 
 - Unidirectional RNNs does not look ahead for information that comes later in the sequence. It only incorporates information from previous time steps. 
 
