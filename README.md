@@ -18,7 +18,7 @@ Sentiment classification | Sequence of words | Score |
 DNA analyis | Alphabet sequence | Protein mapping |
 Music generation | Set of notes as an integer | Sequence of music |
 Voice recognition | Audio clip | Sequence of words |
-Video recognition | Sequence of video frames | E ntity, activity recognition|
+Video recognition | Sequence of video frames | Entity, activity recognition|
 
 Most of these situations are adressed through a supervised learning problem, ie given a representation of labeled data (X, Y), the RNN will use a sequence model to learn the adequate set of parameters in order to map a particular input X to the target output Y. 
 
