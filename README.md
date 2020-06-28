@@ -77,7 +77,7 @@ Observations:
 
    - L(Y^,Y) = - Sum<sub>t=1</sub><sup>T<sub>y</sub></sup>(Y<sup>\<t\></sup>log(Y^<sup>\<t\></sup>) + (1-Y<sup>\<t\></sup>)log(1-Y^<sup>\<t\></sup>))
 
-- The architecture illustrated above assumes equal length for inputs and outputs, that is (T<sub>x</sub> = T<sub>y</sub>). If it is not the case then use padding techniques to ensure that this assumption continues to hold;
+- The architecture illustrated above is called many-to-may assuming equal length for inputs and outputs, that is (T<sub>x</sub> = T<sub>y</sub>). However, depending on your purpose, this assumption may not be convinient. For instance in the case of speech recognition a one-to-many architecture is more suitable. Similarly a many-to-one architecture will fit better with sentiment analysis needs. Finally the encoder-decoder architecture (many-to-many with T<sub>x</sub> different from T<sub>x</sub>) works well for mahine translation purposes.
 
 - One drawback of unidirectional RNNs is that for a given time t, it does not look ahead for information that comes later in the sequence. It only incorporates previous information from earlier time steps. 
 
