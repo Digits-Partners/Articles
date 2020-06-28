@@ -62,7 +62,7 @@ Observations:
 
 - a<sup>\<0\></sup> can be initialized randomly, however common choice would be a zero vertor intialization;
    
-- We can see that to predict the output y^<sup>\<2\></sup>, the second layer takes into account the second word X<sup>\<2\></sup> as well as the activation value a<sup>\<1\></sup> from time 1. That is when making the prediction for X<sup>\<2\></sup> the RNN compiles information not only from  X<sup>\<2\></sup> but also from  X<sup>\<1\></sup>;
+- We can see that to predict the output Y^<sup>\<2\></sup>, the second layer takes into account the second word X<sup>\<2\></sup> as well as the activation value a<sup>\<1\></sup> from time 1. That is when making the prediction for X<sup>\<2\></sup> the RNN compiles information not only from  X<sup>\<2\></sup> but also from  X<sup>\<1\></sup>;
    
 - The input parameters W<sub>ax</sub> are the same across the different layers. Similarely the activation and output parameters (resp.) W<sub>aa</sub> and W<sub>ay</sub> are shared across the different time steps;
 
@@ -70,11 +70,11 @@ Observations:
 
 - The activation values are calculated through a forward propagation process governed by the following equations:
    - a<sup>\<t\></sup> = g<sub>1</sub>(W<sub>aa</sub>a<sup>\<t-1\></sup> + W<sub>ax</sub>X<sup>\<t\></sup>  + b<sub>a</sub>);
-   - y^<sup>\<t\></sup> = g<sub>2</sub>(W<sub>ay</sub>a<sup>\<t\></sup> + b<sub>y</sub>);
+   - Y^<sup>\<t\></sup> = g<sub>2</sub>(W<sub>ay</sub>a<sup>\<t\></sup> + b<sub>y</sub>);
    - The g<sub>1</sub> and g<sub>2</sub> may differ from each other. Generally we use functions such as tanh, ReLU and sigmoid.
 
-- The parameters   W<sub>aa</sub>,  W<sub>ax</sub>, W<sub>ay</sub>, b<sub>a</sub>, b<sub>y</sub> are learnt using a trial and error optimizer such as gradient descent or equivalent that minimizes the loss function, based on backward propagated partial derivatives of this function with respect to each parameter. 
-   - loss function expression (cross entroy or logistic function)
+- The parameters   W<sub>aa</sub>,  W<sub>ax</sub>, W<sub>ay</sub>, b<sub>a</sub>, b<sub>y</sub> are learnt by an optimizer such as gradient descent or equivalent, that minimizes the loss function (L as stated bellow). This is an iterative process where the parameters are getting updated using backward propagation of the partial derivatives of L with respect to each parameter. 
+   - L(Y^,Y) = - Sum<sub>t=1</sub><sup>T<sub>y</sub></sup>(Y<sup>\<t\></sup>log(Y^<sup>\<t\></sup>) + (1-Y<sup>\<t\></sup>)log(1-Y^<sup>\<t\></sup>))
 
 - The architecture illustrated above assumes equal length for inputs and outputs, that is (T<sub>x</sub> = T<sub>y</sub>). If it is not the case then use padding techniques to ensure that this assumption continues to hold;
 
