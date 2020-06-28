@@ -48,6 +48,8 @@ h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
 
 ## Unidirectional recursive neural networks (RNN)
 
+Figure<sup>(1)</sup> illustrate a typical recurrent neural network architecture
+
 <p align="center">
    <img  src="./rnn.png">
 </p>
