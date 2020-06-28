@@ -22,7 +22,7 @@ Video recognition | Sequence of video frames | Entity, activity recognition|
 
 Most of these situations are adressed through a supervised learning problem, ie given a representation of labeled data (X, Y), the RNN will use a sequence model to learn the adequate set of parameters in order to map a particular input X to the target output Y. 
 
-In this post we will focus on NLP techniques to illustrate how RNNs can be used to handle text content where inputs and outputs can be different lenghts across different examples and how RNNs allow features sharing across diffrent positions of the text (elements learned from one piece of a text, can generalize to the susequent parts of same text).
+In this post we will focus on NLP techniques to illustrate how RNNs can be used to handle text content where inputs and outputs can be different lenghts across different examples. We will also see how RNNs can allow features sharing across diffrent positions of the text (elements learned from one piece of a text, can generalize to the subequent parts of same text).
 
 ## Representation and notations 
 
