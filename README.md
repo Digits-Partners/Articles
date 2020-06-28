@@ -66,9 +66,12 @@ Observations:
    
 - The input parameters W<sub>ax</sub> are the same across the different layers. Similarely the activation and output parameters (resp.) W<sub>aa</sub> and W<sub>ay</sub> are shared across the different time steps;
 
-- Broadly speaking speaking, the RNN processes input data from left to right. At each time step t, the RNN takes the input X<sup>\<t\></sup> and passes on the activation value a<sup>\<t\></sup> to the next step t+1, where :
-   
-   a<sup>\<t\></sup> = g<sub>1</sub>(W<sub>aa</sub>a<sup>\<t-1\></sup> + W<sub>ax</sub>X<sup>\<t-1\></sup>  + b<sub>a</sub>) and y^<sup>\<t\></sup> = g<sub>2</sub>(W<sub>ya</sub>a<sup>\<t\></sup> + b<sub>y</sub>). The g<sub>1</sub> and g<sub>2</sub> are (tanh, ReLU, sigmoid, ...) functions and may differ from each other;
+- Broadly speaking speaking, the RNN processes input data from left to right. At each time step t, the RNN takes the input X<sup>\<t\></sup> and passes on the activation value a<sup>\<t\></sup> to the next step t+1;
+
+- activations values are calculated through a forward propagation process governed by the following equations:
+
+-- a<sup>\<t\></sup> = g<sub>1</sub>(W<sub>aa</sub>a<sup>\<t-1\></sup> + W<sub>ax</sub>X<sup>\<t-1\></sup>  + b<sub>a</sub>)
+-- y^<sup>\<t\></sup> = g<sub>2</sub>(W<sub>ya</sub>a<sup>\<t\></sup> + b<sub>y</sub>). The g<sub>1</sub> and g<sub>2</sub> are (tanh, ReLU, sigmoid, ...) functions and may differ from each other;
 
 
 - The architecture illustrated above assumes that inputs and outputs length are equal (T<sub>x</sub> = T<sub>y</sub>). if it is not the case then use padding techniques to ensure that this assumption continues to hold;
