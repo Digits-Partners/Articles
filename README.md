@@ -48,7 +48,9 @@ h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
 
 ## Unidirectional recursive neural networks (RNN)
 
-Figure1, bellow, illustrates a typical recurrent neural network architecture
+Figure1, bellow, illustrates a typical recurrent neural network architecture. Two main benefits drawn from this architecture are :
+1- X<sup>\<i\></sup> and Y<sup>\<i\></sup> can be of different size 
+2- Feature cross sharing, ie features learnt from earlier layers are shared and factored across later layers leading to a much more efficient way of learning model parameters 
 
 <p align="center">
    <img  src="./rnn.png">
@@ -62,7 +64,7 @@ Observations:
 
 - The input parameters W<sub>ax</sub> are the same across the different layers. Similarely the activation and output parameters (resp.) W<sub>aa</sub> and W<sub>ay</sub> are shared across the different time steps;
 
-- The architecture illustrated above assumes that inputs and outputs length are equal (T<sub>x</sub> = T<sub>y</sub>);
+- The architecture illustrated above assumes that inputs and outputs length are equal (T<sub>x</sub> = T<sub>y</sub>). if it is not the case then use padding techniques to ensure that this assumption continues to hold;
 
 - Unidirectional RNNs does not look ahead for information that comes later in the sequence. It only incorporates information from previous time steps. 
 
