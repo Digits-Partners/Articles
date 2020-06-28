@@ -64,9 +64,12 @@ Observations:
    
 - We can see that to predict the output y^<sup>\<2\></sup>, the second layer takes into account the second word X<sup>\<2\></sup> as well as the activation value a<sup>\<1\></sup> from time 1. That is when making the prediction for X<sup>\<2\></sup> the RNN compiles information not only from  X<sup>\<2\></sup> but also from  X<sup>\<1\></sup>;
    
-- Generally speaking, the RNN processes input data from left to right. At each time step t, the RNN takes the input X<sup>\<t\></sup> and passes on the activation value a<sup>\<t\></sup> to the next step t+1;
-
 - The input parameters W<sub>ax</sub> are the same across the different layers. Similarely the activation and output parameters (resp.) W<sub>aa</sub> and W<sub>ay</sub> are shared across the different time steps;
+
+- Broadly speaking speaking, the RNN processes input data from left to right. At each time step t, the RNN takes the input X<sup>\<t\></sup> and passes on the activation value a<sup>\<t\></sup> to the next step t+1;
+   a<sup>\<t\></sup> = g(W<sub>aa</sub>a<sup>\<t-1\></sup> + b<sub>a</sub>)
+   y^<sup>\<t\></sup> = g(W<sub>ya</sub>a<sup>\<t\></sup> + b<sub>y</sub>)
+
 
 - The architecture illustrated above assumes that inputs and outputs length are equal (T<sub>x</sub> = T<sub>y</sub>). if it is not the case then use padding techniques to ensure that this assumption continues to hold;
 
