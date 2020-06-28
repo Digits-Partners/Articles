@@ -12,14 +12,14 @@ Recurrent neural networks (RNNs) are designed to handle sequence to sequence dat
 Areas such as natural language processing (NLP) and speech recognition are very good candidates to RNN architectures. You'll find bellow a non-exhaustive list of some comprehensive usages with real added value to various vital industries.
 
 <center>
-| Usage | Input (X) | Output(Y) |
-| :--- | :--- | :--- |
-Machine translation | Sequence of words | Sequence of words |
-Sentiment classification | Sequence of words | Score |
-DNA analyis | Alphabet sequence | Protein mapping |
-Music generation | Set of notes as an integer | Sequence of music |
-Voice recognition | Audio clip | Sequence of words |
-Video recognition | Sequence of video frames | Entity, activity recognition|
+   | Usage | Input (X) | Output(Y) |
+   | :--- | :--- | :--- |
+   Machine translation | Sequence of words | Sequence of words |
+   Sentiment classification | Sequence of words | Score |
+   DNA analyis | Alphabet sequence | Protein mapping |
+   Music generation | Set of notes as an integer | Sequence of music |
+   Voice recognition | Audio clip | Sequence of words |
+   Video recognition | Sequence of video frames | Entity, activity recognition|
 </center>
 
 Most of these situations are adressed through a supervised learning problem, ie given a representation of labeled data (X, Y), the RNN will use a sequence model to learn the adequate set of parameters in order to map a particular input X to the target output Y. 
