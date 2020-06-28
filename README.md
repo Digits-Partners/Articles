@@ -88,7 +88,7 @@ In particular if you need to get the full picture of a data serie before predict
 ## Bidirectional recursive neural networks (BRNN)
 
 ## Gated Recurrent Units (GRU) and Long short term model (LSTM)
-The basic RNN model suffers from vanishing gradient problem, in particular when the data squence exhibits long term dependencies, that is elements from later time steps are dependent on elments from the very early time steps. In fact, as the RNN get deeper, the gradients from latest layers experience a hard time propagating back to update the paramters of the very early layers. 
+The basic RNN model suffers from lack of long term memory due to vanishing gradient problem, in particular when the data squence exhibits long term dependencies, that is elements from later time steps are dependent on elments from the very early time steps. In fact, as the RNN get deeper, the gradients from latest layers experience a hard time propagating back to update the paramters of the very early layers. Please note that exploding gradient may lead to the same situation in whitch case the gradient clipping may be used as a workaround solution to fix the problem.
 
 ## Attention model
 
