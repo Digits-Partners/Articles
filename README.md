@@ -68,7 +68,7 @@ Observations:
 
 - Broadly speaking speaking, the RNN processes input data from left to right. At each time step t, the RNN takes the input X<sup>\<t\></sup> and passes on the activation value a<sup>\<t\></sup> to the next step t+1;
 
-- The activations values are calculated through a forward propagation process governed by the following equations:
+- The activation values are calculated through a forward propagation process governed by the following equations:
    - a<sup>\<t\></sup> = g<sub>1</sub>(W<sub>aa</sub>a<sup>\<t-1\></sup> + W<sub>ax</sub>X<sup>\<t-1\></sup>  + b<sub>a</sub>);
    - y^<sup>\<t\></sup> = g<sub>2</sub>(W<sub>ya</sub>a<sup>\<t\></sup> + b<sub>y</sub>);
    - The g<sub>1</sub> and g<sub>2</sub> functions may differ from each other. Generally we use tanh, ReLU, sigmoid.
