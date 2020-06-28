@@ -11,6 +11,7 @@ Recurrent neural networks (RNNs) are designed to handle sequence to sequence dat
 ## Practical usages
 Areas such as natural language processing (NLP) and speech recognition are very good candidates to RNN architectures. You'll find bellow a non-exhaustive list of some comprehensive usages with real added value to various vital industries.
 
+<center>
 | Usage | Input (X) | Output(Y) |
 | :--- | :--- | :--- |
 Machine translation | Sequence of words | Sequence of words |
@@ -19,6 +20,7 @@ DNA analyis | Alphabet sequence | Protein mapping |
 Music generation | Set of notes as an integer | Sequence of music |
 Voice recognition | Audio clip | Sequence of words |
 Video recognition | Sequence of video frames | Entity, activity recognition|
+</center>
 
 Most of these situations are adressed through a supervised learning problem, ie given a representation of labeled data (X, Y), the RNN will use a sequence model to learn the adequate set of parameters in order to map a particular input X to the target output Y. 
 
@@ -34,6 +36,7 @@ First we need to care about the words representation (inputs and/or outputs)
 
 - Step3: Each (one-hot) vector from step2 is represented within a word embending space (dimentionality reduction techniques). 
 
+<center>
 | Notation | Description |
 | :--- | :--- |
 | (X,Y) | Pair X and Y of labeled data from the training set examples |
@@ -42,7 +45,8 @@ First we need to care about the words representation (inputs and/or outputs)
 | T<sub>y</sub><sup>(i)</sup> | The length of the sequence in the i<sup>th</sup> training example output|
 | X<sup>(i)\<t\></sup> | The t<sup>th</sup> element/sequence in the i<sup>th</sup> training example input|
 | Y<sup>(i)\<t\></sup> |The t<sup>th</sup> element/sequence in the i<sup>th</sup> training example output|
-
+</center>
+   
 h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x  
 
 
