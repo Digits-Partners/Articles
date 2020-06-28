@@ -93,12 +93,12 @@ The Gated Recurrent Units (GRU) model is a variation of the RNN model, it has be
    
    - c<sup>\<t-1\></sup> = a<sup>\<t-1\></sup>
    
-   - G<sup>\<r\></sup> = sigmoid(W<sub>rc</sub>c<sup>\<t-1\></sup> + W<sub>rx</sub>X<sup>\<t\></sup>  + b<sub>r</sub>)
+   - G<sub>\<r\></sub> = sigmoid(W<sub>rc</sub>c<sup>\<t-1\></sup> + W<sub>rx</sub>X<sup>\<t\></sup>  + b<sub>r</sub>)
    
    - c-tilda<sup>\<t\></sup> = tanh( G<sub>\<r\></sub>W<sub>cc</sub>c<sup>\<t-1\></sup> + W<sub>cx</sub>X<sup>\<t\></sup>  + b<sub>c</sub>)
    
    
-   - G<sup>\<u\></sup> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>)
+   - G<sub>\<u\></sub> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>)
    
    - c<sup>\<t\></sup> = G<sub>\<u\></sub> c-tilda<sup>\<t\></sup> + (1-G<sub>\<u\></sub>) c<sup>\<t-1\></sup>
 
