@@ -87,7 +87,9 @@ In particular if you need to get the full picture of a data serie before predict
 
 ## Bidirectional recursive neural networks (BRNN)
 
-## Long short term model (LSTM)
+## Gated Recurrent Units (GRU) and Long short term model (LSTM)
+vanishing gradient problem
+
 ## Attention model
 
 ## Conclusion
