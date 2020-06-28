@@ -54,7 +54,7 @@ Figure1, bellow, illustrates a typical recurrent neural network architecture. He
 2. Features cross sharing, ie features learnt from earlier layers are shared and factored across later layers leading to a much more efficient way of learning model parameters 
 
 <p align="center">
-   <img  src="./rnn.png" alt="RNN!" title="recurrent neural network (RNN)">
+   <img  src="./rnn.png" alt="RNN!" title="Recurrent neural network (RNN)">
 </p>
 
 Observations:
