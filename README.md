@@ -31,9 +31,9 @@ First we need to care about the words representation (inputs and/or outputs)
 
 - Step1: Build a sizable dictionnary (large corpus) that best reflects the words and terms universe within the area of interest. All words within the dictionnary are ordered and indexed.
 
-- Step2: Tokenize your input. Each tokenized word is represented by a (one-hot) vector of same size as the dictionary. Set 1 at the position where the word matches the dictionary entry and 0 eslewhere. This is simply a binary projection of the word on the dictionnay space.
+- Step2: Apply word stemming if appropriate to your purpose (the key benefit here is the corpus size reduction)
 
-- Step3: Apply word stemming if appropriate with your purpose (the key benefit here is the reduction of the corpus size)
+- Step3: Tokenize your input. Each tokenized word is represented by a (one-hot) vector of same size as the dictionary. Set 1 at the position where the word matches the dictionary entry and 0 eslewhere. This is simply a binary projection of the word on the dictionnay space.
 
 - Step4: Each (one-hot) vector from step2 is represented within a word embending space (dimentionality reduction techniques). 
 
