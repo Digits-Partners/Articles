@@ -93,13 +93,13 @@ In fact, as the RNN get deeper, the gradients from latest layers experience a ha
 
 The Gated Recurrent Units (GRU) model is a variation of the RNN model, it has been designed to adress the lack of long term memory also known as "local influences problem". Technically speaking the GRU adds a new output for each layer unit called the "memory cell", denoted as c<sup>\<t\><sup>. c<sup>\<t\><sup> will carry out any desired activation value from earlier layers up to the time step t where it is no more needed and will be replaced by the candidate cell memory value c-tilda<sup>\<t\><sup>. c<sup>\<t\><sup> is driven by an update-gate sigmoid function G<sub>u</sub> that will take 1 when the cell memory is replaced by  c-tilda<sup>\<t\><sup> and 0 otherwise.
    
-   - c<sup>\<t-1\><sup> = a<sup>\<t-1\><sup>
+   - c<sup>\<t-1\></sup> = a<sup>\<t-1\></sup>
    
-   - c-tilda<sup>\<t\><sup> = tanh(W<sub>cc</sub>c<sup>\<t-1\></sup> + W<sub>cx</sub>X<sup>\<t\></sup>  + b<sub>c</sub>)
+   - c-tilda<sup>\<t\></sup> = tanh(W<sub>cc</sub>c<sup>\<t-1\></sup> + W<sub>cx</sub>X<sup>\<t\></sup>  + b<sub>c</sub>)
    
-   - G<sup>\<u\><sup> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>)
+   - G<sup>\<u\></sup> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>)
    
-   - c<sup>\<t\><sup> = G<sub>\<u\><sub> c-tilda<sup>\<t\><sup> + (1-G<sub>\<u\><sub>) c<sup>\<t-1\><sup>
+   - c<sup>\<t\></sup> = G<sub>\<u\></sub> c-tilda<sup>\<t\></sup> + (1-G<sub>\<u\></sub>) c<sup>\<t-1\></sup>
 
 ## Attention model
 
