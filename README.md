@@ -1,4 +1,4 @@
-NB: Here we assume that readers of this section are aleady familiar with neural networks fundamentals with respect to activation functions, forward and backpropagation techniques. 
+NB: Here we assume that readers are aleady familiar with neural networks fundamentals with respect to activation functions, forward and backpropagation techniques. 
 If it is not the case don't worry! we have prepared some awsome references for you to get started :)
 
 # Sequence-to-Sequnce neural networks architectures
