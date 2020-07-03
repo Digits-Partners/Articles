@@ -90,12 +90,11 @@ The basic RNN model suffers from lack of long term memory due to vanishing gradi
 In fact, as the RNN get deeper, the gradients from latest layers experience a hard time propagating back to update the paramters of the very early layers. Please note that exploding gradients may lead to the same situation in whitch case the gradient clipping may be used as a workaround solution to fix the problem.
 
 - The Gated Recurrent Units (GRU) model is a variation of the RNN model, it has been designed to adress the lack of long term memory also known as "local influences problem". Technically speaking the GRU adds a new output for each layer unit called the "memory cell", denoted as c<sup>\<t\></sup>. 
-   
-c<sup>\<t\></sup> will carry out any desired activation value from earlier layers up to the time step t where it is no longer needed and replaced by the candidate cell memory value c-tilda<sup>\<t\></sup>. 
+- c<sup>\<t\></sup> will carry out any desired activation value from earlier layers up to the time step t where it is no longer needed and replaced by the candidate cell memory value c-tilda<sup>\<t\></sup>. 
 
-c<sup>\<t\></sup> is driven by an update-gate sigmoid function G<sub>u</sub> that takes 1 when the cell memory needs to be replaced by c-tilda<sup>\<t\></sup> and 0 otherwise. 
+- c<sup>\<t\></sup> is driven by an update-gate sigmoid function G<sub>u</sub> that takes 1 when the cell memory needs to be replaced by c-tilda<sup>\<t\></sup> and 0 otherwise. 
 
-c-tilda<sup>\<t\></sup> is also driven by a relevance gate, denoted G<sub>r</sub>, indicating how much c<sup>\<t-1\></sup> is relevant to the calculation of the candidate c-tilda<sup>\<t\></sup>.
+- c-tilda<sup>\<t\></sup> is also driven by a relevance gate, denoted G<sub>r</sub>, indicating how much c<sup>\<t-1\></sup> is relevant to the calculation of the candidate c-tilda<sup>\<t\></sup>.
    
    - c<sup>\<t-1\></sup> = a<sup>\<t-1\></sup>
    
