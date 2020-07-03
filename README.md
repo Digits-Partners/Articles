@@ -79,9 +79,11 @@ Observations:
 
 - The architecture illustrated above has a many-to-many structure where inputs and outputs have equal length, that is (T<sub>x</sub> = T<sub>y</sub>). However in the case of speech recognition, a one-to-many architecture is more suitable. Similarly a many-to-one architecture will fit better with sentiment analysis needs. Finally the encoder-decoder architecture (many-to-many with T<sub>x</sub> different from T<sub>y</sub>) works well for mahine translation purposes.
 
-- One drawback of unidirectional RNNs is that for a given time step t, the information that comes later in the sequence remains unknown. 
+- Unidirectional RNNs arichitecture put some training challenges, in the following use cases:
+   - When the RNN get deeper, the vanishing/exploding gradients prevent from properly learning the model parameters. See GRU section to see how this issue has been adressed.   
+   - When your prediction at time step t depends on information that comes later in the sequence. claasic RNNs only incorporetes previous information at each time step t. The Bidirectional recursive neural networks (BRNN) architecture is more suitable in this case.
 
-If you need to get access to information that comes later in the sequence (after time step t), then the Bidirectional recursive neural networks (BRNN) architecture is more suitable.
+
 
 ## Gated Recurrent Units (GRU) and Long short term model (LSTM)
 The basic RNN model suffers from lack of long term memory due to vanishing gradients problem, in particular when the data squence exhibits long term dependencies. That is elements from later time steps are dependent on elments from the very early time steps. 
