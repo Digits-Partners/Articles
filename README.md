@@ -107,6 +107,8 @@ In fact, as the RNN get deeper, the gradients from latest layers experience a ha
    
    - c<sup>\<t\></sup> = G<sub>u</sub> c-tilda<sup>\<t\></sup> + (1-G<sub>\<u\></sub>) c<sup>\<t-1\></sup>
 
+Under such a construction, even when G<sub>u</sub> gets very small (due vanishing gradients), c<sup>\<t\></sup> will keep track of the memorised value c<sup>\<t-1\></sup>
+
 ## Bidirectional recursive neural networks (BRNN)
 
 ## Attention model
