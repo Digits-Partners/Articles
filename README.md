@@ -85,7 +85,7 @@ Observations:
 
 
 
-## Gated Recurrent Units (GRU) and Long short term model (LSTM)
+## Gated Recurrent Units (GRU)
 The basic RNN model suffers from lack of long term memory due to vanishing gradients problem, in particular when the data squence exhibits long term dependencies. That is elements from later time steps are dependent on elments from the very early time steps. 
 In fact, as the RNN get deeper, the gradients from latest layers experience a hard time propagating back to update the paramters of the very early layers. Please note that exploding gradients may lead to the same situation in whitch case the gradient clipping may be used as a workaround solution to fix the problem.
 
@@ -108,6 +108,8 @@ In fact, as the RNN get deeper, the gradients from latest layers experience a ha
    - c<sup>\<t\></sup> = G<sub>u</sub> c-tilda<sup>\<t\></sup> + (1-G<sub>\<u\></sub>) c<sup>\<t-1\></sup>
 
 Under such a construction, even when G<sub>u</sub> gets very small (due vanishing gradients), c<sup>\<t\></sup> will keep track of the memorised value c<sup>\<t-1\></sup>
+
+## Long short term model (LSTM)
 
 ## Bidirectional recursive neural networks (BRNN)
 
