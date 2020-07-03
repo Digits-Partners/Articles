@@ -83,8 +83,6 @@ Observations:
 
 If you need to get access to information that comes later in the sequence (after time step t), then the Bidirectional recursive neural networks (BRNN) architecture is more suitable.
 
-## Bidirectional recursive neural networks (BRNN)
-
 ## Gated Recurrent Units (GRU) and Long short term model (LSTM)
 The basic RNN model suffers from lack of long term memory due to vanishing gradients problem, in particular when the data squence exhibits long term dependencies. That is elements from later time steps are dependent on elments from the very early time steps. 
 In fact, as the RNN get deeper, the gradients from latest layers experience a hard time propagating back to update the paramters of the very early layers. Please note that exploding gradients may lead to the same situation in whitch case the gradient clipping may be used as a workaround solution to fix the problem.
@@ -100,6 +98,8 @@ In fact, as the RNN get deeper, the gradients from latest layers experience a ha
    - G<sub>\<u\></sub> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>)
    
    - c<sup>\<t\></sup> = G<sub>\<u\></sub> c-tilda<sup>\<t\></sup> + (1-G<sub>\<u\></sub>) c<sup>\<t-1\></sup>
+
+## Bidirectional recursive neural networks (BRNN)
 
 ## Attention model
 
