@@ -79,9 +79,9 @@ Observations:
 
 - The architecture illustrated above has a many-to-many structure where inputs and outputs have equal length, that is (T<sub>x</sub> = T<sub>y</sub>). However in the case of speech recognition, a one-to-many architecture is more suitable. Similarly a many-to-one architecture will fit better with sentiment analysis needs. Finally the encoder-decoder architecture (many-to-many with T<sub>x</sub> different from T<sub>y</sub>) works well for mahine translation purposes.
 
-- One drawback of unidirectional RNNs is that for a given time t, it does not look ahead for information that comes later in the sequence. It only incorporates previous information from earlier time steps. 
+- One drawback of unidirectional RNNs is that for a given time step t, the information that comes later in the sequence remains unknown. 
 
-In particular if you need to get the full picture of a data serie before predicting the result for each time t, then the Bidirectional recursive neural networks (BRNN) architecture is more suitable.
+If you need to get access to information that comes later in the sequence (after time step t), then the Bidirectional recursive neural networks (BRNN) architecture is more suitable.
 
 ## Bidirectional recursive neural networks (BRNN)
 
