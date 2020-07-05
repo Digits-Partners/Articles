@@ -10,7 +10,7 @@ Recurrent neural networks (RNNs) are designed to handle sequence to sequence dat
 
 ## Practical usages
 Areas such as natural language processing (NLP) and speech recognition are very good candidates to RNN architectures. You'll find bellow a non-exhaustive list of some comprehensive usages with real added value to various vital industries.
-
+ 
 
    | Usage | Input (X) | Output(Y) |
    | :--- | :--- | :--- |
