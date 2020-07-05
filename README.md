@@ -86,15 +86,15 @@ Observations:
 
 
 ## Gated Recurrent Units (GRU)
-The basic RNN model suffers from lack of long term memory due to vanishing gradients problem, in particular when the data squence exhibits long term dependencies. That is elements from later time steps are dependent on elments from the very early time steps. 
-In fact, as the RNN get deeper, the gradients from latest layers experience a hard time propagating back to update the paramters of the very early layers. Please note that exploding gradients may lead to the same situation in whitch case the gradient clipping may be used as a workaround solution to fix the problem.
+The basic RNN model suffers from lack of long term memory due to vanishing gradients problem, in particular when the data squence exhibits long term dependencies, where elements from later time steps are dependent on elments from the very early time steps. 
+In fact, as the RNN gets deeper, the gradients from latest layers struggle in propagating back to update the paramters from the very early layers. Exploding gradients may lead to the same situation, however the gradient clipping may be used as a workaround solution to fix the problem.
 
-- The Gated Recurrent Units (GRU) model is a variation of the RNN model, it has been designed to adress the lack of long term memory also known as "local influences problem". Technically speaking the GRU adds a new output for each layer unit called the "memory cell", denoted as c<sup>\<t\></sup>. 
-- c<sup>\<t\></sup> will carry out any desired activation value from earlier layers up to the time step t where it is no longer needed and replaced by the candidate cell memory value c-tilda<sup>\<t\></sup>. 
+- The Gated Recurrent Units (GRU) model is a variation of the RNN model, it has been designed to adress the lack of long term memory also known as "local influences problem". Technically speaking the GRU create a new output for each layer unit, called the "memory cell", denoted as c<sup>\<t\></sup>. 
+- c<sup>\<t\></sup> carries out any desired activation value from earlier layers up to the time step t where it is no longer needed. It will then be replaced by the new candidate cell memory value c-tilda<sup>\<t\></sup>. 
 
-- c<sup>\<t\></sup> is driven by an update-gate sigmoid function G<sub>u</sub> that takes 1 when the cell memory needs to be replaced by c-tilda<sup>\<t\></sup> and 0 otherwise. 
+- The memory update decision is driven by an update-gate sigmoid function G<sub>u</sub> that takes 1 when the cell memory needs to be replaced by c-tilda<sup>\<t\></sup> and 0 otherwise. 
 
-- c-tilda<sup>\<t\></sup> is also driven by a relevance gate, denoted G<sub>r</sub>, indicating how much c<sup>\<t-1\></sup> is relevant to the calculation of the candidate c-tilda<sup>\<t\></sup>.
+- The candidate cell memory c-tilda<sup>\<t\></sup> is also driven by a relevance gate, denoted G<sub>r</sub>, indicating how much c<sup>\<t-1\></sup> is relevant to the calculation of the candidate c-tilda<sup>\<t\></sup>.
    
    - c<sup>\<t-1\></sup> = a<sup>\<t-1\></sup>
    
@@ -107,7 +107,7 @@ In fact, as the RNN get deeper, the gradients from latest layers experience a ha
    
    - c<sup>\<t\></sup> = G<sub>u</sub> c-tilda<sup>\<t\></sup> + (1-G<sub>\<u\></sub>) c<sup>\<t-1\></sup>
 
-Under such a construction, even when G<sub>u</sub> gets very small (due vanishing gradients), c<sup>\<t\></sup> will keep track of the memorised value c<sup>\<t-1\></sup>
+Under such a construction, even when G<sub>u</sub> gets very small (due vanishing gradients), c<sup>\<t\></sup> will keep track of the memorised value c<sup>\<t-1\></sup>.
 
 ## Long short term model (LSTM)
 
