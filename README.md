@@ -77,7 +77,7 @@ Observations:
 
    - L(Y^,Y) = - Sum<sub>t=1</sub><sup>T<sub>y</sub></sup>(Y<sup>\<t\></sup>log(Y^<sup>\<t\></sup>) + (1-Y<sup>\<t\></sup>)log(1-Y^<sup>\<t\></sup>))
 
-- The architecture illustrated above has a many-to-many structure where inputs and outputs have equal length, that is (T<sub>x</sub> = T<sub>y</sub>). However in the case of speech recognition, a one-to-many architecture is more suitable. Similarly a many-to-one architecture will fit better with sentiment analysis needs. Finally the encoder-decoder architecture (many-to-many with T<sub>x</sub> different from T<sub>y</sub>) works well for mahine translation purposes.
+- The architecture illustrated above has a many-to-many structure where inputs and outputs have equal length, that is (T<sub>x</sub> = T<sub>y</sub>). However in the case of speech recognition, a one-to-many architecture is more suitable. Similarly a many-to-one architecture is a more appropriate fit when it comes to sentiment analysis needs. Finally the encoder-decoder architecture (many-to-many with T<sub>x</sub> different from T<sub>y</sub>) works well for mahine translation purposes.
 
 - Unidirectional RNNs arichitecture put some training challenges, in particular when:
    - The RNN gets deeper, the vanishing/exploding gradients prevent from properly learning the model parameters. The GRU section describes how this issue has been adressed.   
