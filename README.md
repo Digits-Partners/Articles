@@ -130,7 +130,10 @@ The forget gate G<sub>f</sub>, allows to store in the old memory cell value c<su
 ## Bidirectional recursive neural networks (BRNN)
 The main benefit from BRNNs is that for a given time step t, it captures information from earlier and later sequences, coming before and after t.   
 
-The BRNN si defined by an acyclic graph, where given an input sequence X<sup>\<1\></sup> to X<sup>\<T<sub>x</sub>\></sup>
+The BRNN is defined by an acyclic graph, where given an input sequence X<sup>\<1\></sup> to X<sup>\<T<sub>x</sub>\></sup>, the neural networks runs the forward propagation in two steps:
+1. A forward sequence of activation values starting from fwd_a<sup>\<1\></sup> to fwd_a<sup>\<T<sub>x</sub>\></sup> 
+2. backward sequence of activation values starting from bwd_a<sup>\<T<sub>x</sub>\></sup> to bwd_a<sup>\<1\></sup>.
+The prediction Y^ at time t is based on both forward and backward activation value at time t.
 
 ## Attention model
 
