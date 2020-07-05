@@ -133,7 +133,7 @@ The main benefit from BRNNs is that for a given time step t, it captures informa
 The BRNN is defined by an acyclic graph, where given an input sequence X<sup>\<1\></sup> to X<sup>\<T<sub>x</sub>\></sup>, the neural networks runs the forward propagation in two steps:
 1. A forward sequence of activation values starting from fwd_a<sup>\<1\></sup> to fwd_a<sup>\<T<sub>x</sub>\></sup> 
 2. backward sequence of activation values starting from bwd_a<sup>\<T<sub>x</sub>\></sup> to bwd_a<sup>\<1\></sup>.
-The prediction Y^ at time t is based on both forward and backward activation value at time t.
+The prediction Y^ at time t is based on both forward and backward activation values at time t (fwd_a<sup>t</sup> and bwd_a<sup>t</sup>).
 
 ## Attention model
 
