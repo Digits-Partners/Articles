@@ -110,6 +110,16 @@ In fact, as the RNN gets deeper, the gradients from latest layers struggle in pr
 Under such a construction, even when G<sub>u</sub> gets very small (due vanishing gradients), c<sup>\<t\></sup> will keep track of the memorised value c<sup>\<t-1\></sup>.
 
 ## Long short term model (LSTM)
+LSTM stands from Long term short memory, it is a more general version of GRU
+   
+   - G<sub>r</sub> = sigmoid(W<sub>rc</sub>c<sup>\<t-1\></sup> + W<sub>rx</sub>X<sup>\<t\></sup>  + b<sub>r</sub>)
+   
+   - c-tilda<sup>\<t\></sup> = tanh( G<sub>r</sub>W<sub>cc</sub>c<sup>\<t-1\></sup> + W<sub>cx</sub>X<sup>\<t\></sup>  + b<sub>c</sub>)
+   
+   
+   - G<sub>u</sub> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>)
+   
+   - c<sup>\<t\></sup> = G<sub>u</sub> c-tilda<sup>\<t\></sup> + (1-G<sub>\<u\></sub>) c<sup>\<t-1\></sup>
 
 ## Bidirectional recursive neural networks (BRNN)
 
