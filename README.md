@@ -80,8 +80,8 @@ Observations:
 - The architecture illustrated above has a many-to-many structure where inputs and outputs have equal length, that is (T<sub>x</sub> = T<sub>y</sub>). However in the case of speech recognition, a one-to-many architecture is more suitable. Similarly a many-to-one architecture is a more appropriate fit when it comes to sentiment analysis. Finally the encoder-decoder architecture (many-to-many with T<sub>x</sub> different from T<sub>y</sub>) works well for mahine translation purposes.
 
 - Unidirectional RNNs arichitecture put some training challenges, in particular when:
-   - The RNN gets deeper, the vanishing/exploding gradients prevent from properly learning the model parameters. The GRU section describes how this issue has been adressed.   
-   - Your prediction at time step t, depends on information that comes later in the sequence. At each time step t, classic RNNs only incorporates information prior to t. The Bidirectional recursive neural networks (BRNN) architecture is more suitable in this case.
+   1. The RNN gets deeper, the vanishing/exploding gradients prevent from properly learning the model parameters. The GRU and LSTM sections describe how this issue has been resolved.   
+   2. Your prediction at time step t, depends on information that comes later in the sequence. At each time step t, classic RNNs only incorporates information prior to t. The Bidirectional recursive neural networks (BRNN) architecture is more suitable in this case.
 
 
 
