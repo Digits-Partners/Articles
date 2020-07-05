@@ -113,17 +113,19 @@ LSTM stands from Long term short memory, it is a more general version of GRU, wi
 
    - c-tilda<sup>\<t\></sup> = tanh( W<sub>ac</sub>a<sup>\<t-1\></sup> + W<sub>cx</sub>X<sup>\<t\></sup>  + b<sub>c</sub>), (no relevance gate G<sub>r</sub>. uses a<sup>\<t-1\></sup> rather than c<sup>\<t-1\></sup>) 
    
-   - G<sub>u</sub> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>)
+   - G<sub>u</sub> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>), (This the updae gate, same as the one used in the GRU model)
  
-  - G<sub>f</sub> = sigmoid(W<sub>fa</sub>a<sup>\<t-1\></sup> + W<sub>fx</sub>X<sup>\<t\></sup>  + b<sub>f </sub>), (G<sub>f</sub> replaces the (1-G<sub>u</sub>) term in the GRU model, used to carry the old memory cell value c<sup>\<t-1\></sup>)
+  - G<sub>f</sub> = sigmoid(W<sub>fa</sub>a<sup>\<t-1\></sup> + W<sub>fx</sub>X<sup>\<t\></sup>  + b<sub>f </sub>), (The forget gate G<sub>f</sub> replaces the (1-G<sub>u</sub>) term in the GRU model, used to carry the old memory cell value c<sup>\<t-1\></sup>)
   
-  - G<sub>o</sub> = sigmoid(W<sub>oa</sub>a<sup>\<t-1\></sup> + W<sub>ox</sub>X<sup>\<t\></sup>  + b<sub>o </sub>)    
+  - G<sub>o</sub> = sigmoid(W<sub>oa</sub>a<sup>\<t-1\></sup> + W<sub>ox</sub>X<sup>\<t\></sup>  + b<sub>o </sub>), (This is the output gate, it drives the values of a<sup>\<t\></sup> given c<sup>\<t\></sup>)
   
   - c<sup>\<t\></sup> = G<sub>u</sub>*c-tilda<sup>\<t\></sup> + G<sub>f</sub>*c<sup>\<t-1\></sup>
  
   - a<sup>\<t\></sup> = G<sub>o</sub>*tanh(c<sup>\<t\></sup>)
  
 (*), denotes elements wise product
+
+The forget gate G<sub>f</sub>, allows to store in the old memory cell value c<sup>\<t-1\></sup>. By construction the LSTM is more complex/flexible than GRUs, but they require more ressources to train the model parameters.
  
 ## Bidirectional recursive neural networks (BRNN)
 
