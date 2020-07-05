@@ -99,27 +99,31 @@ In fact, as the RNN gets deeper, the gradients from latest layers struggle in pr
    
    - G<sub>r</sub> = sigmoid(W<sub>rc</sub>c<sup>\<t-1\></sup> + W<sub>rx</sub>X<sup>\<t\></sup>  + b<sub>r</sub>)
    
-   - c-tilda<sup>\<t\></sup> = tanh( G<sub>r</sub>W<sub>cc</sub>c<sup>\<t-1\></sup> + W<sub>cx</sub>X<sup>\<t\></sup>  + b<sub>c</sub>)
+   - c-tilda<sup>\<t\></sup> = tanh( G<sub>r</sub>*W<sub>cc</sub>c<sup>\<t-1\></sup> + W<sub>cx</sub>X<sup>\<t\></sup>  + b<sub>c</sub>)
    
    
    - G<sub>u</sub> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>)
    
-   - c<sup>\<t\></sup> = G<sub>u</sub> c-tilda<sup>\<t\></sup> + (1-G<sub>\<u\></sub>) c<sup>\<t-1\></sup>
+   - c<sup>\<t\></sup> = G<sub>u</sub>*c-tilda<sup>\<t\></sup> + (1-G<sub>\<u\></sub>)*c<sup>\<t-1\></sup>
 
 Under such a construction, even when G<sub>u</sub> gets very small (due vanishing gradients), c<sup>\<t\></sup> will keep track of the memorised value c<sup>\<t-1\></sup>.
 
 ## Long short term model (LSTM)
-LSTM stands from Long term short memory, it is a more general version of GRU
-   
-   - G<sub>r</sub> = sigmoid(W<sub>rc</sub>c<sup>\<t-1\></sup> + W<sub>rx</sub>X<sup>\<t\></sup>  + b<sub>r</sub>)
-   
-   - c-tilda<sup>\<t\></sup> = tanh( G<sub>r</sub>W<sub>cc</sub>c<sup>\<t-1\></sup> + W<sub>cx</sub>X<sup>\<t\></sup>  + b<sub>c</sub>)
-   
+LSTM stands from Long term short memory, it is a more general version of GRU, with the folowing variations:
+
+   - c-tilda<sup>\<t\></sup> = tanh( W<sub>ac</sub>a<sup>\<t-1\></sup> + W<sub>cx</sub>X<sup>\<t\></sup>  + b<sub>c</sub>), (no relevance gate G<sub>r</sub>. uses a<sup>\<t-1\></sup> rather than c<sup>\<t-1\></sup>) 
    
    - G<sub>u</sub> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>)
-   
-   - c<sup>\<t\></sup> = G<sub>u</sub> c-tilda<sup>\<t\></sup> + (1-G<sub>\<u\></sub>) c<sup>\<t-1\></sup>
-
+ 
+  - G<sub>f</sub> = sigmoid(W<sub>fa</sub>a<sup>\<t-1\></sup> + W<sub>fx</sub>X<sup>\<t\></sup>  + b<sub>f </sub>), (replaces (1-G<sub>\<u\></sub>) term in the GRU model used to carry the old memory cell value c<sup>\<t-1\></sup>)
+  
+  - G<sub>o</sub> = sigmoid(W<sub>oa</sub>a<sup>\<t-1\></sup> + W<sub>ox</sub>X<sup>\<t\></sup>  + b<sub>o </sub>)    
+  
+  - c<sup>\<t\></sup> = G<sub>u</sub>*c-tilda<sup>\<t\></sup> + G<sub>\<f\></sub>*c<sup>\<t-1\></sup>
+  - a<sup>\<t\></sup> = G<sub>o</sub>*tanh(c<sup>\<t\></sup>)
+ 
+(*), denotes elements wise product
+ 
 ## Bidirectional recursive neural networks (BRNN)
 
 ## Attention model
