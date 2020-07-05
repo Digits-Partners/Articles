@@ -81,8 +81,7 @@ Observations:
 
 - Unidirectional RNNs arichitecture put some training challenges, in particular when:
    1. The RNN gets deeper, the vanishing/exploding gradients prevent from properly learning the model parameters. The GRU and LSTM sections describe how this issue has been resolved.   
-   2. Your prediction at time step t, depends on information that comes later in the sequence. At each time step t, classic RNNs only incorporates information prior to t. The Bidirectional recursive neural networks (BRNN) architecture is more suitable in this case.
-
+   2. Your prediction at time step t, depends on information that comes later in the sequence. Classic RNNs only incorporates information prior to t. In order to capture information that comes later on, ie after time step t, the Bidirectional recursive neural networks (BRNN) architecture is more convinient choice.
 
 
 ## Gated Recurrent Units (GRU)
