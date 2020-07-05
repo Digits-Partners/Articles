@@ -128,7 +128,9 @@ LSTM stands from Long term short memory, it is a more general version of GRU, wi
 The forget gate G<sub>f</sub>, allows to store in the old memory cell value c<sup>\<t-1\></sup>. By construction the LSTM is more complex/flexible than GRUs, but they require more ressources to train the model parameters.
  
 ## Bidirectional recursive neural networks (BRNN)
-The main benefit from BRNNs is that for a given a time step t, it captures information from earlier and later sequences, coming before and after t. 
+The main benefit from BRNNs is that for a given time step t, it captures information from earlier and later sequences, coming before and after t.   
+
+The BRNN si defined by an acyclic graph, where given an input sequence X<sup>\<1\></sup> to X<sup>\<T<sub>x</sub>\></sup>
 
 ## Attention model
 
