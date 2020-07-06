@@ -50,8 +50,8 @@ First we need to care about the words representation (inputs and/or outputs)
 Enables the relationship between words such as analogies, similarities, or any other business logic that might be of interest. Here some of the key apsects of this exercise:
 1. Based on the words corpus, identify a space of features, called embeding space, that would best refelect the relationships between words wihtin your domain of interest
 2. Represent each word in the new embeding space by electing one of the following options:
- 1. Learn a featurized representation from large text corpus (up to hundred of billions of words)
- 2. Take advantage of a pre-trained word embeding and transfer its learning to your specific task (smaller trainig set)
+  1. Learn a featurized representation from large text corpus (up to hundred of billions of words)
+  2. Take advantage of a pre-trained word embeding and transfer its learning to your specific task (smaller trainig set)
 3. Eliminates biases such as gender, ethnicity, relegion, 
 
 
