@@ -50,7 +50,7 @@ First we need to care about the words representation (inputs and/or outputs)
 
 Enables the relationship between words such as analogies, similarities, or any other business logic that might be of interest. Here some of the key apsects of this exercise:
 
-1. Based on the words corpus, identify a space of features, called embeding space, that would best capture the relationships between words wihtin your domain of interest. [Mikolov et. al., 2013, Linguistic regularities in continous space word representation]
+1. Based on the words corpus, identify a space of features, called embeding space, that would best capture the relationships between words wihtin your domain of interest. [Mikolov et. al., 2013, Linguistic regularities in continous space word representation]. Similarities that hold in n-densional space, may not hold after t-SNE mapping. t-SNE algorithm takes an n dimensional vector and maps in a non-linear way to the 2-dimensional space
 
 2. Represent each word in the new embeding space by electing one of the following options:
 
