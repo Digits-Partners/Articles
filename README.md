@@ -60,7 +60,7 @@ Enables the relationship between words such as analogies, similarities, or any o
    
  3. Eliminates biases such as gender, ethnicity, relegion, 
 
-There is some analogy between image encoding through conv nets (resulting full connected layer), and words embeding through a neural network that learns the embeding vectors given a large text corpus. Yet there is one slight difference between the two, that is in the case of word embeding, the text corpus is fixed and embeded vectors are learnt only for that text corpus, whereas in the image encoding, training set is dynamic, ie the convnet learns encoding even for new images.
+There is some analogy between image encoding through conv nets (resulting full connected layer), and words embeding through a neural network that learns the embeding vectors given a large text corpus. Yet there is one slight difference between the two, that is in the case of word embeding, the text corpus is fixed and embeded vectors are learnt only for that text corpus, whereas in the image encoding, training set is dynamic, ie the neural network learns encoding even for new images.
 
 ## Unidirectional recursive neural networks (RNN)
 
