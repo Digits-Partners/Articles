@@ -50,15 +50,17 @@ First we need to care about the words representation (inputs and/or outputs)
 
 Enables the relationship between words such as analogies, similarities, or any other business logic that might be of interest. Here some of the key apsects of this exercise:
 
-1. Based on the words corpus, identify a space of features, called embeding space, that would best refelect the relationships between words wihtin your domain of interest
+1. Based on the words corpus, identify a space of features, called embeding space, that would best capture the relationships between words wihtin your domain of interest. [Mikolov et. al., 2013, Linguistic regularities in continous space word representation]
 
 2. Represent each word in the new embeding space by electing one of the following options:
 
-   1. Learn a featurized representation from a large text corpus (up to hundred of billions of words)
+   1. Learn a featurized representation from a large text corpus (up to hundred of billions of words), works well in machine translation
    
-   2. Take advantage from an existing pre-trained word embeding and transfer its learning to your specific task (smaller trainig set)
+   2. Take advantage from an existing pre-trained word embeding and transfer its learning to your specific task (smaller trainig set), in particular tasks like name entity recognition, text sumurization, core reference resolution
    
- 3. Eliminates biases such as gender, ethnicity, relegion, 
+ 3. Eliminates biases such as gender, ethnicity, relegion 
+ 
+ 
 
 There is some analogy between image encoding through conv nets (resulting full connected layer), and words embeding through a neural network that learns the embeding vectors given a large text corpus. Yet there is one slight difference between the two, that is in the case of word embeding, the text corpus is fixed and embeded vectors are learnt only for that text corpus, whereas in the image encoding, training set is dynamic, ie the neural network learns encoding even for new images.
 
