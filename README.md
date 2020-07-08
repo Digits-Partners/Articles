@@ -56,13 +56,13 @@ First we need to care about the words representation (inputs and/or outputs)
 
    1. Learn a featurized representation from a large text corpus (up to hundred of billions of words), works well in machine translation. Some of the most popular algorithms are decribed bellow:
    
-      1. Predict a target word (t) given a certain context of previous words (c). To do so we can train a one hidden layer neural network, that takes as inputs the embedding vectors associated with the context and feeds it to a softmax unit whitch classifies the given context among all possible words within the text corpus, such as:
+      1. Predict a target word (t) given a certain context of previous words (c). To do so we can train a one hidden layer neural network, that takes as inputs the one-hot representation of the context, and feeds the embedding vectors associated with that context to a softmax unit whitch in turn classifies the given context among all possible words within the text corpus, such as:
       
             - Softmax prediction : Y^ = P(t/c) = (e<sup>θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>) / Sum<sub>j=1</sub> <sup>n</sup>(e<sup>θ<sub>j</sub><sup>T</sup>e<sub>c</sub></sup>), where:
 
-              - θ<sub>t</sub> : the target weights;
+              - θ<sub>t</sub> : the target weights (as model parameters of the softmax unit);
 
-              - e<sub>c</sub> : the context embedding vector;
+              - e<sub>c</sub> : the context embedding vector (as model parameters of the hidden layer);
 
               - n : the corpus text size
 
