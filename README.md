@@ -55,7 +55,11 @@ First we need to care about the words representation (inputs and/or outputs)
 2. Construct the embedding matrix (number of embedding vectors x number of words in the text corpus), to represent each word in the new embeding space by electing one of the following options:
 
    1. Learn a featurized representation from a large text corpus (up to hundred of billions of words), works well in machine translation. Some of the most popular algorithms are decribed bellow:
-      1. To predict a word given a certain context of previous words, we use a one hidden layer neural network that takes as inputs the embedding vectors associated with the context and feeds a softmax whitch classifies the given context among all possible words within the text corpus. [Bengio et. al,2003, A neural probabilistic language model].
+   
+      1. Predict a target word given a certain context of previous words. To do so we can train a one hidden layer neural network that takes as inputs the embedding vectors associated with the context and feeds it to a softmax whitch classifies the given context among all possible words within the text corpus. To learn the words embedding weights, we can perform a gradient descent (after runing a backpropagation) to maximize the likelyhood of the training set. [Bengio et. al,2003, A neural probabilistic language model]. One variation of the above algorithm is to predict a target word given on a certain context composed of both previous and next words
+      
+      2. The Skip-grams algorithm maps a context to a target word, where the target may be within a window of n-words nearby the context. [Mikolov et. al., 2013. Efficient estimation of word epresentation in vector space]
+
    
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
