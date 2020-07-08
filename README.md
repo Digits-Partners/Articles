@@ -58,7 +58,7 @@ First we need to care about the words representation (inputs and/or outputs)
    
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
- 3. Similarities that hold in n-densional space, may not hold after t-SNE mapping. t-SNE algorithm takes an n dimensional vector and maps it a non-linear way to a 2-dimensional space
+ 3. Similarities that hold in n-densional space, may not hold after t-SNE mapping. t-SNE algorithm takes an n-dimensional vector and maps it a non-linear way to a 2-dimensional space
 
  4. One popular way of implementing the similarity function between two words -represented respectively by their associated embeding vectors u and v- is based on the cosine of the angle between the two emebeding vectors u and v, and is expressed as follows:
  
