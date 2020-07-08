@@ -151,7 +151,7 @@ The BRNN is defined by an acyclic graph, where given an input sequence X<sup>\<1
 1. A forward sequence of activation values starting from fwd_a<sup>\<1\></sup> to fwd_a<sup>\<T<sub>x</sub>\></sup> 
 2. A backward sequence of activation values starting from bwd_a<sup>\<T<sub>x</sub>\></sup> to bwd_a<sup>\<1\></sup>
 
-The prediction Y^ at time t is based on both forward and backward activation values at time t (fwd_a<sup>\<t\></sup> and bwd_a<sup>\<t\></sup>), whitch allows the prediction to factor in information from steps prioir to time t, as well as information after time t.
+The prediction Y^ at time t is based on both forward and backward activation values at time t (fwd_a<sup>\<t\></sup> and bwd_a<sup>\<t\></sup>), whitch allows the prediction to factor in information from steps prior to time t, as well as information after time t.
  
 Elementary blocks within the BRNN can either be GRU or LSTM.
 
