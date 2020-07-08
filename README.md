@@ -61,8 +61,7 @@ First we need to care about the words representation (inputs and/or outputs)
          
          One variation of the above algorithm is to predict a target word given on a certain context composed of both previous and next words.
          
-        
-        Softmax : P(t/c) = (e<sup>θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>) / Sum<sub>j=1</sub> <sup>n</sup>(e<sup>θ<sub>j</sub><sup>T</sup>e<sub>c</sub></sup>), where:
+         Softmax : P(t/c) = (e<sup>θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>) / Sum<sub>j=1</sub> <sup>n</sup>(e<sup>θ<sub>j</sub><sup>T</sup>e<sub>c</sub></sup>), where:
        
          θ<sub>t</sub> : the target weights;
           
