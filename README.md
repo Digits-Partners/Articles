@@ -66,7 +66,7 @@ First we need to care about the words representation (inputs and/or outputs)
 
             - n : the corpus text size
 
-            - Loss function : L(Y, Y^) = Sum<sub>i=1</sub><sup>n</sup>(Y<sub>i</sub>log(Y^<sub>i</sub>))
+            - Loss function : L(Y, Y^) = -Sum<sub>i=1</sub><sup>n</sup>(Y<sub>i</sub>log(Y^<sub>i</sub>))
       
          To learn the words embedding weights θ<sub>t</sub>, we run the backpropagation process and perform a gradient descent to maximize the likelyhood of the training set. [Bengio et. al,2003, A neural probabilistic language model]. 
          
