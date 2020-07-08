@@ -55,7 +55,7 @@ First we need to care about the words representation (inputs and/or outputs)
 2. Construct the embedding matrix (number of embedding vectors x number of words in the text corpus), to represent each word in the new embeding space by electing one of the following options:
 
    1. Learn a featurized representation from a large text corpus (up to hundred of billions of words), works well in machine translation. Some of the most popular algorithms are decribed bellow:
-      1. [Bengio et. al,2003, A neural probabilistic language model]
+     1. [Bengio et. al,2003, A neural probabilistic language model]
    
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
