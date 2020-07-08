@@ -60,9 +60,9 @@ First we need to care about the words representation (inputs and/or outputs)
    
  3. Similarities that hold in n-densional space, may not hold after t-SNE mapping. t-SNE algorithm takes an n dimensional vector and maps it a non-linear way to a 2-dimensional space
 
- 4. One way of implementing the similarity function between two words, is based on the difference between the respective embeding vectors of each word. One way of measuring this difference is based on the cosine of the angle between the two emebeding vectors u and v, and is expressed as follows:
+ 4. One way of implementing the similarity function between two words -represented respectively by their associated embeding vectors u and v- is based on the cosine of the angle between the two emebeding vectors u and v, and is expressed as follows:
  
- cosine(u, v) = (u<sup>T</sup>v) / (||u||<sub>2</sub>||v||<sub>2</sub>)
+ -- cosine(u,v) = (u<sup>T</sup>v) / (||u||<sub>2</sub> ||v||<sub>2</sub>)
  
  5. Eliminates biases such as gender, ethnicity, relegion 
  
