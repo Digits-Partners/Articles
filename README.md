@@ -70,9 +70,9 @@ First we need to care about the words representation (inputs and/or outputs)
       
          To learn the words embedding weights θ<sub>t</sub>, we run the backpropagation process and perform a gradient descent to maximize the likelyhood of the training set. [Bengio et. al,2003, A neural probabilistic language model]. 
          
-         One variation of the above algorithm is to predict a target word given on a certain context composed of both previous and next words.         
+         One extension of the above algorithm is to predict a target word given on a certain context composed of both previous and next words.         
       
-      2. The Skip-grams algorithm maps a context to a target word, where the target may be within a window of n-words nearby the context. [Mikolov et. al., 2013. Efficient estimation of word epresentation in vector space]
+      2. The Skip-grams algorithm maps a context to a target word, where the target is within a window of n-words nearby the context. [Mikolov et. al., 2013. Efficient estimation of word epresentation in vector space]
 
    
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
