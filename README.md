@@ -66,7 +66,7 @@ First we need to care about the words representation (inputs and/or outputs)
          
          n : the corpus text size
 
-       Loss function : L(Y, Y^) = Sum<sub>i=1</sub><sup>n</sup>(Y<sub>i</sub>log(Y<sub>i</sub>))
+       Loss function : L(Y, Y^) = Sum<sub>i=1</sub><sup>n</sup>(Y<sub>i</sub>log(Y^<sub>i</sub>))
 
        To learn the words embedding weights θ<sub>t</sub>, we can perform a gradient descent (after runing a backpropagation) to maximize the likelyhood of the training set. [Bengio et. al,2003, A neural probabilistic language model]. One variation of the above algorithm is to predict a target word given on a certain context composed of both previous and next words
       
