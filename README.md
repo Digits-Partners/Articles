@@ -64,7 +64,7 @@ First we need to care about the words representation (inputs and/or outputs)
  
     - cosine(u,v) = (u<sup>T</sup>v) / (||u||<sub>2</sub> ||v||<sub>2</sub>)
     
-  Another way of measuring the similarity between u an v, is based on the euclidean distance between these two vectors.
+    Another way of measuring the similarity between u an v, is based on the euclidean distance between these two vectors.
  
  5. Eliminates biases such as gender, ethnicity, relegion 
  
