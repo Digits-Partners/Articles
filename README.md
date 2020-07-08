@@ -68,7 +68,7 @@ First we need to care about the words representation (inputs and/or outputs)
 
             - Loss function : L(Y, Y^) = -Sum<sub>i=1</sub><sup>n</sup>(Y<sub>i</sub>log(Y^<sub>i</sub>))
       
-         To learn the words embedding weights θ<sub>t</sub>, we run a backpropagation process and perform a gradient descent to maximize the likelyhood of the training set. [Bengio et. al,2003, A neural probabilistic language model]. 
+         To learn the targets weights θ<sub>t</sub> and the context embedding vectors e<sub>c</sub>, we run the backpropagation procedure and perform the loss optimization (gradient descent or equivalent) to maximize the likelyhood of the training set. [Bengio et. al,2003, A neural probabilistic language model]. 
          
          One extension of the above algorithm is to predict a target word given on a certain context composed of both previous and next words.         
       
