@@ -58,9 +58,11 @@ First we need to care about the words representation (inputs and/or outputs)
    
       1. Predict a target (t) word given a certain context (c) of previous words. To do so we can train a one hidden layer neural network that takes as inputs the embedding vectors associated with the context and feeds it to a softmax function whitch classifies the given context among all possible words within the text corpus, such as:
          To learn the words embedding weights θ<sub>t</sub>, we can perform a gradient descent (after runing a backpropagation) to maximize the likelyhood of the training set. [Bengio et. al,2003, A neural probabilistic language model]. 
+         
          One variation of the above algorithm is to predict a target word given on a certain context composed of both previous and next words.
          
-         Softmax : P(t/c) = (e<sup>θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>) / Sum<sub>j=1</sub> <sup>n</sup>(e<sup>θ<sub>j</sub><sup>T</sup>e<sub>c</sub></sup>), where:
+        
+        Softmax : P(t/c) = (e<sup>θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>) / Sum<sub>j=1</sub> <sup>n</sup>(e<sup>θ<sub>j</sub><sup>T</sup>e<sub>c</sub></sup>), where:
        
          θ<sub>t</sub> : the target weights;
           
