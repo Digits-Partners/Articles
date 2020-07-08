@@ -128,9 +128,9 @@ Under such a construction, even when G<sub>u</sub> gets very small (due vanishin
 ## Long short term model (LSTM)
 LSTM stands from Long term short memory, it is a more general version of GRU, with the folowing variations:
 
-   - c-tilda<sup>\<t\></sup> = tanh( W<sub>ac</sub>a<sup>\<t-1\></sup> + W<sub>cx</sub>X<sup>\<t\></sup>  + b<sub>c</sub>), (no relevance gate G<sub>r</sub>. uses a<sup>\<t-1\></sup> rather than c<sup>\<t-1\></sup>) 
+   - c-tilda<sup>\<t\></sup> = tanh( W<sub>ca</sub>a<sup>\<t-1\></sup> + W<sub>cx</sub>X<sup>\<t\></sup>  + b<sub>c</sub>), (no relevance gate G<sub>r</sub>. uses a<sup>\<t-1\></sup> rather than c<sup>\<t-1\></sup>) 
    
-   - G<sub>u</sub> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>), (This the updae gate, same as the one used in the GRU model)
+   - G<sub>u</sub> = sigmoid(W<sub>uc</sub>c<sup>\<t-1\></sup> + W<sub>ux</sub>X<sup>\<t\></sup>  + b<sub>u</sub>), (This the update gate, same as the one used in the GRU model)
  
   - G<sub>f</sub> = sigmoid(W<sub>fa</sub>a<sup>\<t-1\></sup> + W<sub>fx</sub>X<sup>\<t\></sup>  + b<sub>f </sub>), (The forget gate G<sub>f</sub> replaces the (1-G<sub>u</sub>) term in the GRU model, used to carry the old memory cell value c<sup>\<t-1\></sup>)
   
