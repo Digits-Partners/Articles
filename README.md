@@ -78,6 +78,8 @@ First we need to care about the words representation (inputs and/or outputs)
       
          One way of speeding up the hierarchical softmax is to use a binary classifier. In this configuration the text corpus is represented by a binary tree where the root node (parent) holds the complete text corpus, each parent node is subdivided into two distinct sub groups (parent = union of sub groups). The hierarchical softmax iterates through the binary tree starting from the root node down to the leafs to classify the context among two subgroups, up to the level where the predicted word is found. 
          
+         Another way reduce computational cost is negative sampling.
+         
          The hierarchical softmax does not use a balanced tree (equal node size). Indeed, infrequent words should be captured by deeper layers of the tree, whereas frequent words should be found pretty much quicly at the upper levels of the tree to accelarate the classifier computation time. The computaiton cost in this case scales like the log(vocab size).
 
    
