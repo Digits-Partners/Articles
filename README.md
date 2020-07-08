@@ -50,12 +50,12 @@ First we need to care about the words representation (inputs and/or outputs)
 
 (WE) captures the relationship between words such as analogies, similarities, or any other business logic that might be of interest. Here some of the key apsects of this concept:
 
-1. Based on the words corpus, identify a space of features, called embeding space, that would best capture the relationships between words wihtin your domain of interest. [Mikolov et. al., 2013, Linguistic regularities in continous space word representation].
+1. Based on the words corpus, identify/define  a space of features, called embeding space, that would best capture the relationships between words wihtin your domain of interest. [Mikolov et. al., 2013, Linguistic regularities in continous space word representation].
 
 2. Construct the embedding matrix (number of embedding vectors x number of words in the text corpus), to represent each word in the new embeding space by electing one of the following options:
 
    1. Learn a featurized representation from a large text corpus (up to hundred of billions of words), works well in machine translation. Some of the most popular algorithms are decribed bellow:
-     1. [Bengio et. al,2003, A neural probabilistic language model]
+      1. To predict a word given a certain context of previous words, we use a one hidden layer neural network that takes as inputs the embedding vectors associated with the context and feeds a softmax whitch classifies the given context among all possible words within the text corpus. [Bengio et. al,2003, A neural probabilistic language model].
    
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
