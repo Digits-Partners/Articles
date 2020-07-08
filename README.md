@@ -82,7 +82,7 @@ First we need to care about the words representation (inputs and/or outputs)
          
          The hierarchical softmax does not use a balanced tree (equal node size). Indeed, infrequent words should be captured by deeper layers of the tree, whereas frequent words should be found pretty much quicly at the upper levels of the tree to accelarate the classifier computation time. The computaiton cost in this case scales like the log(vocab size).
          
-         When sampling the context, make sure to strip out -excessively frequent- words from the corpus distributon.
+         When sampling the context, make sure to use a heuristic that get rid of -excessively frequent- words from the corpus distributon.
 
    
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
