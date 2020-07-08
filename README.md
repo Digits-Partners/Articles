@@ -46,9 +46,9 @@ First we need to care about the words representation (inputs and/or outputs)
 | X<sup>(i)\<t\></sup> | The t<sup>th</sup> element/sequence in the i<sup>th</sup> training example input|
 | Y<sup>(i)\<t\></sup> |The t<sup>th</sup> element/sequence in the i<sup>th</sup> training example output|
    
-## Words embeding
+## Words embeding (WE)
 
-Enables the relationship between words such as analogies, similarities, or any other business logic that might be of interest. Here some of the key apsects of this exercise:
+(WE) captures the relationship between words such as analogies, similarities, or any other business logic that might be of interest. Here some of the key apsects of this concept:
 
 1. Based on the words corpus, identify a space of features, called embeding space, that would best capture the relationships between words wihtin your domain of interest. [Mikolov et. al., 2013, Linguistic regularities in continous space word representation]. Similarities that hold in n-densional space, may not hold after t-SNE mapping. t-SNE algorithm takes an n dimensional vector and maps in a non-linear way to the 2-dimensional space
 
