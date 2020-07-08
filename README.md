@@ -50,7 +50,7 @@ First we need to care about the words representation (inputs and/or outputs)
 
 (WE) captures the relationship between words such as analogies, similarities, or any other business logic that might be of interest. Here some of the key apsects of this concept:
 
-1. Based on the words corpus, identify a space of features, called embeding space, that would best capture the relationships between words wihtin your domain of interest. [Mikolov et. al., 2013, Linguistic regularities in continous space word representation]. Similarities that hold in n-densional space, may not hold after t-SNE mapping. t-SNE algorithm takes an n dimensional vector and maps it a non-linear way to a 2-dimensional space
+1. Based on the words corpus, identify a space of features, called embeding space, that would best capture the relationships between words wihtin your domain of interest. [Mikolov et. al., 2013, Linguistic regularities in continous space word representation].
 
 2. Represent each word in the new embeding space by electing one of the following options:
 
@@ -58,7 +58,13 @@ First we need to care about the words representation (inputs and/or outputs)
    
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
- 3. Eliminates biases such as gender, ethnicity, relegion 
+ 3. Similarities that hold in n-densional space, may not hold after t-SNE mapping. t-SNE algorithm takes an n dimensional vector and maps it a non-linear way to a 2-dimensional space
+
+ 4. One way of implementing the similarity function between two words, is based on the difference between the respective embeding vectors of each word. One way of measuring this difference is based on the cosine of the angle between the two emebeding vectors u and v, and is expressed as follows:
+ 
+ cosine(u, v) = (u<sup>T</sup>v) / (||u||<sub>2</sub>||v||<sub>2</sub>)
+ 
+ 5. Eliminates biases such as gender, ethnicity, relegion 
  
  
 
