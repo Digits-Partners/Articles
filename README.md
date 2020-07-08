@@ -62,7 +62,7 @@ First we need to care about the words representation (inputs and/or outputs)
 
  4. One way of implementing the similarity function between two words -represented respectively by their associated embeding vectors u and v- is based on the cosine of the angle between the two emebeding vectors u and v, and is expressed as follows:
  
-    <center>cosine(u,v) = (u<sup>T</sup>v) / (||u||<sub>2</sub> ||v||<sub>2</sub>)</center>
+    - cosine(u,v) = (u<sup>T</sup>v) / (||u||<sub>2</sub> ||v||<sub>2</sub>)
  
  5. Eliminates biases such as gender, ethnicity, relegion 
  
