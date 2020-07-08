@@ -72,7 +72,7 @@ First we need to care about the words representation (inputs and/or outputs)
          
          One extension of the above algorithm is to predict a target word given on a certain context composed of both previous and next words.         
       
-      2. The Skip-grams algorithm maps a context to a target word, where the target is within a window of n-words nearby the context. [Mikolov et. al., 2013. Efficient estimation of word epresentation in vector space]
+      2. The Skip-grams algorithm is also another extension of the algorithm descirbed above. Indeed it maps a context to a target word, where the target is within a window of n-words nearby the context. That is given a context of words, we may skip few (previous/next) words to reach out the target. [Mikolov et. al., 2013. Efficient estimation of word epresentation in vector space]
 
    
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
