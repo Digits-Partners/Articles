@@ -58,15 +58,15 @@ First we need to care about the words representation (inputs and/or outputs)
    
       1. Predict a target word (t) given a certain context of previous words (c). To do so we can train a one hidden layer neural network, that takes as inputs the embedding vectors associated with the context and feeds it to a softmax function whitch classifies the given context among all possible words within the text corpus, such as:
       
-            Softmax : P(t/c) = (e<sup>θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>) / Sum<sub>j=1</sub> <sup>n</sup>(e<sup>θ<sub>j</sub><sup>T</sup>e<sub>c</sub></sup>), where:
+            - Softmax : P(t/c) = (e<sup>θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>) / Sum<sub>j=1</sub> <sup>n</sup>(e<sup>θ<sub>j</sub><sup>T</sup>e<sub>c</sub></sup>), where:
 
-            θ<sub>t</sub> : the target weights;
+            - θ<sub>t</sub> : the target weights;
 
-            e<sub>c</sub> : the context embedding vector;
+            - e<sub>c</sub> : the context embedding vector;
 
-            n : the corpus text size
+            - n : the corpus text size
 
-            Loss function : L(Y, Y^) = Sum<sub>i=1</sub><sup>n</sup>(Y<sub>i</sub>log(Y^<sub>i</sub>))
+            - Loss function : L(Y, Y^) = Sum<sub>i=1</sub><sup>n</sup>(Y<sub>i</sub>log(Y^<sub>i</sub>))
       
          To learn the words embedding weights θ<sub>t</sub>, we run the backpropagation process and perform a gradient descent to maximize the likelyhood of the training set. [Bengio et. al,2003, A neural probabilistic language model]. 
          
