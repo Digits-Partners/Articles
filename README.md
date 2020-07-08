@@ -60,11 +60,11 @@ First we need to care about the words representation (inputs and/or outputs)
       
             - Softmax prediction : Y^ = P(t/c) = (e<sup>θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>) / Sum<sub>j=1</sub> <sup>n</sup>(e<sup>θ<sub>j</sub><sup>T</sup>e<sub>c</sub></sup>), where:
 
-             - θ<sub>t</sub> : the target weights;
+              - θ<sub>t</sub> : the target weights;
 
-             - e<sub>c</sub> : the context embedding vector;
+              - e<sub>c</sub> : the context embedding vector;
 
-             - n : the corpus text size
+              - n : the corpus text size
 
             - Loss function : L(Y, Y^) = -Sum<sub>i=1</sub><sup>n</sup>(Y<sub>i</sub>log(Y^<sub>i</sub>))
       
