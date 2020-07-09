@@ -95,7 +95,7 @@ There is some analogy between image encoding through convolutional nets (resulti
               - e<sub>c</sub> : the context embedding vector (as model parameters of the hidden layer)
   
             - the authors of the paper referred above, recommend to use a heuristic to sample Negative examples based on their frequency, yet they found a metric somewhere in between uniform distribution and empirical frequency distribution 
-              - P((w<sub>i</sub>) = f(w<sub>i</sub>)<sup>3/4<sub> / Sum<sub>j=1</sub> <sup>T<sub>x</sub></sup>(f(w<sub>j</sub>)<sup>3/4<sub>), where f is empirical distribution function.
+              - P((w<sub>i</sub>) = f(w<sub>i</sub>)<sup>3/4</sup> / Sum<sub>j=1</sub> <sup>T<sub>x</sub></sup>(f(w<sub>j</sub>)<sup>3/4</sup>), where f is empirical distribution function.
             
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
