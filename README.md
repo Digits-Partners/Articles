@@ -48,6 +48,8 @@ First we need to care about the words representation (inputs and/or outputs)
    
 ## Words embeding (WE)
 
+There is some analogy between image encoding through convolutional nets (resulting in a full connected layer), and words embeding through a neural network that learns the embeding vectors given a large text corpus. Yet there is one slight difference between the two, that is in the case of word embeding, the text corpus is fixed and embeded vectors are learnt only for that text corpus, whereas in the image encoding, training set is dynamic, ie the neural network learns encoding even for new images.
+
 (WE) captures the relationship between words such as analogies, similarities, or any other business logic that might be of interest. Here some of the key apsects of this concept:
 
 1. Based on the words corpus, identify/define  a space of features, called embeding space, that would best capture the relationships between words wihtin your domain of interest. [Mikolov et. al., 2013, Linguistic regularities in continous space word representation].
@@ -82,9 +84,7 @@ First we need to care about the words representation (inputs and/or outputs)
                   
          The hierarchical softmax starts from the root node down to the leaf following a decision process, where the transition probability (conditional to context), to go from parent to child on the right vs. left, is driven by the normalized sum of the underlying probabilities of the children. Untimately the probability of leafs corresponds to the distribution function of the words in the corpus text. In the case of hierarchical softmax, the computaiton cost scales by log of the text corpus size.
          
-         Finally, another way of reducing the computational cost is negative sampling.
-         
-
+         Finally, another way of reducing the computational cost is negative sampling.         
    
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
@@ -98,10 +98,6 @@ First we need to care about the words representation (inputs and/or outputs)
  
  5. Eliminates biases such as gender, ethnicity, relegion 
  
- 
-
-There is some analogy between image encoding through convolutional nets (resulting in a full connected layer), and words embeding through a neural network that learns the embeding vectors given a large text corpus. Yet there is one slight difference between the two, that is in the case of word embeding, the text corpus is fixed and embeded vectors are learnt only for that text corpus, whereas in the image encoding, training set is dynamic, ie the neural network learns encoding even for new images.
-
 ## Unidirectional recursive neural networks (RNN)
 
 The figure bellow, illustrates a classic architecture for recurrent neural network. Here we would like to spot two main benefits drawn from this architecture :
