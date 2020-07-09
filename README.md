@@ -70,7 +70,7 @@ First we need to care about the words representation (inputs and/or outputs)
       
          To learn the model parameters (the targets weights θ<sub>t</sub> and the context embedding vectors e<sub>c</sub>), we backpropagate all the Loss partial derivatives with respct to these parameters, then we run the loss optimization process (gradient descent or equivalent) to maximize the likelyhood of the training set. [Bengio et. al,2003, A neural probabilistic language model]. 
          
-         One extension of the above algorithm is to predict a target word given on a certain context composed of both previous and next words.         
+         One extension of the above algorithm is to predict a target word given a certain context of words arround the target.         
       
       2. The Skip-grams algorithm is also another extension of the algorithm descirbed above. Indeed it maps a context to a target word, where the target is within a window of n-words nearby the context. That is given a context of words, we may skip few (previous/next) words to reach out the target. [Mikolov et. al., 2013. Efficient estimation of word epresentation in vector space]
       
