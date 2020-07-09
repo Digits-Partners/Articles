@@ -85,11 +85,11 @@ There is some analogy between image encoding through convolutional nets (resulti
          The hierarchical softmax starts from the root node down to the leaf following a decision process, where the transition probability (conditional to context), to go from parent to child on the right vs. left, is driven by the normalized sum of the underlying probabilities of the children. Untimately the probability of leafs corresponds to the distribution function of the words in the corpus text. In the case of hierarchical softmax, the computaiton cost scales by log of the text corpus size.
          
          Finally, another way of reducing computational cost is called negative sampling. [Mikolov et. al., 2013. Distributed representation of words and phrases and their compositionality]
-         
              - Rather than runing a softmax classification among the hole text corpus of size T<sub>x</sub>, we run T<sub>x</sub> distinct logistic regressions on small training sets comprised of one positive example and k negative examples. Negative examples are radomaly sampled from the text corpus, where k range [2-5] for large datasets and [5-20] for smaller datasets.
-             - the model takes as inputs k+1 pairs of (context, target) and predict Y^ to be either positive or negative example.
-          - Rather than runing a softmax classification among the hole text corpus of size T<sub>x</sub>, we run T<sub>x</sub> distinct logistic regressions on small training sets comprised of one positive example and k negative examples. Negative examples are radomaly sampled from the text corpus, where k range [2-5] for large datasets and [5-20] for smaller datasets.
-   
+             - The logistic regression model takes as inputs k+1 pairs of (context, target) and learns the parameters (θ<sub>t</sub> and e<sub>c</sub>) to predict Y^ to be either positive or negative example.
+             - Sigmoid prediction : Y^ = P(Y=1/t,c) = 1/(1+e<sup>-θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>)
+             - θ<sub>t</sub> : the target weights (as model parameters of the sigmoid unit);
+             - e<sub>c</sub> : the context embedding vector (as model parameters of the hidden layer);
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
  3. Similarities that hold in n-densional space, may not hold after t-SNE mapping. t-SNE algorithm takes an n-dimensional vector and maps it in a non-linear way to a 2-dimensional space
