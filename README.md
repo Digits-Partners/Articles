@@ -96,7 +96,9 @@ There is some analogy between image encoding through convolutional nets (resulti
   
             - the authors of the paper referred above, recommend to use a heuristic to sample Negative examples based on their frequency, yet they found a metric somewhere in between uniform distribution and empirical frequency distribution 
               - P((w<sub>i</sub>) = f(w<sub>i</sub>)<sup>3/4</sup> / Sum<sub>j=1</sub> <sup>T<sub>x</sub></sup>(f(w<sub>j</sub>)<sup>3/4</sup>), where f is empirical distribution function for words in the text corpus.
-            
+
+      3. GloVe algorithm
+      
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
  3. Similarities that hold in n-densional space, may not hold after t-SNE mapping. t-SNE algorithm takes an n-dimensional vector and maps it in a non-linear way to a 2-dimensional space
