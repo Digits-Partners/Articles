@@ -56,7 +56,7 @@ First we need to care about the words representation (inputs and/or outputs)
 
    1. Learn a featurized representation from a large text corpus (up to hundred of billions of words), works well in machine translation. Some of the most popular algorithms are decribed bellow:
    
-      1. CBOW - continous Bag of words, predicts a target word (t) given a certain context of previous words (c). To do so we can train a one hidden layer neural network, that takes as inputs the one-hot representation of the context, and feeds the embedding vectors associated with that context to a softmax unit whitch in turn classifies the given context among all possible words within the text corpus, such as:
+      1. [Bengio et. al,2003, A neural probabilistic language model], predicts a target word (t) given a certain context of previous words (c). This can done by training a one hidden layer neural network, that takes as inputs the one-hot representation of the context (c), and feeds the embedding vectors associated with that context to a softmax unit whitch in turn classifies the given the embedded context among all possible words within the text corpus, such as:
       
             - Softmax prediction : Y^ = P(t/c) = (e<sup>θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>) / Sum<sub>j=1</sub> <sup>n</sup>(e<sup>θ<sub>j</sub><sup>T</sup>e<sub>c</sub></sup>), where:
 
@@ -68,21 +68,21 @@ First we need to care about the words representation (inputs and/or outputs)
 
             - Loss function : L(Y, Y^) = -Sum<sub>i=1</sub><sup>n</sup>(Y<sub>i</sub>log(Y^<sub>i</sub>))
       
-         To learn the model parameters (the targets weights θ<sub>t</sub> and the context embedding vectors e<sub>c</sub>), we backpropagate all the Loss partial derivatives with respct to these parameters, then we run the loss optimization process (gradient descent or equivalent) to maximize the likelyhood of the training set. [Bengio et. al,2003, A neural probabilistic language model]. 
+         To learn the model parameters (the targets weights θ<sub>t</sub> and the context embedding vectors e<sub>c</sub>), we backpropagate loss partial derivatives with respect to these parameters, then we run the loss optimization process (gradient descent or equivalent) to maximize the training set log-likelihood. . 
          
          One extension of the above algorithm is to predict a target word given a certain context of words arround the target.         
       
       2. The Skip-grams algorithm is also another extension of the algorithm descirbed above. Indeed it maps a context to a target word, where the target is within a window of n-words nearby the context. That is given a context of words, we may skip few (previous/next) words to reach out the target. [Mikolov et. al., 2013. Efficient estimation of word epresentation in vector space]
       
-      3. In the case of large scale neural networks, some computational challenges may araise while using the softmax classifier. Making prediction slows down as the text corpus gets larger. This is because for each predection we need to sum up over all the embedding vectors of text corpus. In this case, the computaitonal cost scales linearly with the text corpus size. 
+      3. In the case of large scale neural networks, some computational challenges may araise while using the softmax classifier. Making prediction slows down as the text corpus gets larger. This is because for each prediction we need to sum up over all the embedding vectors of text corpus. In this case, the computaitonal cost scales linearly with the text corpus size. 
       
-         One way of speeding up the hierarchical softmax is to use a binary classifier. In this configuration the text corpus is represented by a binary tree where the root node (parent) holds the complete text corpus, each parent node is subdivided into two distinct sub groups (parent = union of sub groups). The hierarchical softmax iterates through the binary tree starting from the root node down to the leafs to classify the context among two subgroups, up to the level where the predicted word is found. 
-         
-         Another way of reducing computational cost is negative sampling.
-         
-         The hierarchical softmax does not use a balanced tree (equal node size). Indeed, infrequent words should be captured by deeper layers of the tree, whereas frequent words should be found pretty much quicly at the upper levels of the tree to accelarate the classifier computation time. In this case, the computaiton cost scales by log(text corpus size).
+         One way of speeding up the hierarchical softmax is to use a binary classifier. In this configuration the text corpus is represented by a binary tree, namely Huffman tree, where the root node (parent) holds the complete text corpus, the leafs can be represented by the individual words in the text corpus. Each parent node is subdivided into two distinct sub groups (parent = union of sub groups). The tree is not balanced, the nodes size are of different sizes. The idea here is to minimize the path lenght from root to leaf, in particular for frequent words and pushing down infrequent words deeper in the tree. In the case of hierarchical softmax, the computaiton cost scales by log of the text corpus size.
+         The hierarchical softmax starts from the root node down to the leaf following a kinf of random walk, where the transition probability (conditional to context) at each parent, to go on the right/left is driven by the normalized sum of the underlying probabilities of the children. Untimately the probability of leafs corresponds to the distribution function of the words in the corpus text.
          
          When sampling the context, make sure to use a heuristic that get rid of -excessively frequent- words from the corpus distributon.
+         
+         Finally, another way of reducing the computational cost is negative sampling.
+         
 
    
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
