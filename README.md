@@ -74,13 +74,13 @@ First we need to care about the words representation (inputs and/or outputs)
       
       2. The Skip-grams algorithm is also another extension of the algorithm descirbed above. Indeed it maps a context to a target word, where the target is within a window of n-words nearby the context. That is given a context of words, we may skip few (previous/next) words to reach out the target. [Mikolov et. al., 2013. Efficient estimation of word epresentation in vector space]
       
-      3. Some computational challenges may araise while using the softmax classifier. Making prediction slows down as the text corpus gets larger. This is because for each predection we need to sum up over all the embedding vectors of text corpus. The computaitonal cost in this case scales linearly to the text corpus size. 
+      3. In the case of large scale neural networks, some computational challenges may araise while using the softmax classifier. Making prediction slows down as the text corpus gets larger. This is because for each predection we need to sum up over all the embedding vectors of text corpus. In this case, the computaitonal cost scales linearly with the text corpus size. 
       
          One way of speeding up the hierarchical softmax is to use a binary classifier. In this configuration the text corpus is represented by a binary tree where the root node (parent) holds the complete text corpus, each parent node is subdivided into two distinct sub groups (parent = union of sub groups). The hierarchical softmax iterates through the binary tree starting from the root node down to the leafs to classify the context among two subgroups, up to the level where the predicted word is found. 
          
          Another way of reducing computational cost is negative sampling.
          
-         The hierarchical softmax does not use a balanced tree (equal node size). Indeed, infrequent words should be captured by deeper layers of the tree, whereas frequent words should be found pretty much quicly at the upper levels of the tree to accelarate the classifier computation time. The computaiton cost in this case scales like the log(vocab size).
+         The hierarchical softmax does not use a balanced tree (equal node size). Indeed, infrequent words should be captured by deeper layers of the tree, whereas frequent words should be found pretty much quicly at the upper levels of the tree to accelarate the classifier computation time. In this case, the computaiton cost scales by log(text corpus size).
          
          When sampling the context, make sure to use a heuristic that get rid of -excessively frequent- words from the corpus distributon.
 
