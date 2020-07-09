@@ -84,7 +84,7 @@ There is some analogy between image encoding through convolutional nets (resulti
                   
          The hierarchical softmax starts from the root node down to the leaf following a decision process, where the transition probability (conditional to context), to go from parent to child on the right vs. left, is driven by the normalized sum of the underlying probabilities of the children. Untimately the probability of leafs corresponds to the distribution function of the words in the corpus text. In the case of hierarchical softmax, the computaiton cost scales by log of the text corpus size.
          
-         Finally, another way of reducing the computational cost is negative sampling.         
+         Finally, another way of reducing the computational cost is negative sampling. [Mikolov et. al., 2013. Distributed representation of words and phrases and their compositionality]       
    
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
