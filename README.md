@@ -84,8 +84,11 @@ There is some analogy between image encoding through convolutional nets (resulti
                   
          The hierarchical softmax starts from the root node down to the leaf following a decision process, where the transition probability (conditional to context), to go from parent to child on the right vs. left, is driven by the normalized sum of the underlying probabilities of the children. Untimately the probability of leafs corresponds to the distribution function of the words in the corpus text. In the case of hierarchical softmax, the computaiton cost scales by log of the text corpus size.
          
-         Finally, another way of reducing the computational cost is negative sampling. [Mikolov et. al., 2013. Distributed representation of words and phrases and their compositionality]
-          - rather than runing a softmax classification among the hole text corpus of size T<sub>x</sub>, the idea would be to run T<sub>x</sub> distinct logistic regressions on small training set comprised of one positive exemple and k neagtive examples. Negative examples are radomaly sampled from the text corpus, with k within [2-5] for large dataset and [5-20] for smaller dataset.
+         Finally, another way of reducing computational cost is called negative sampling. [Mikolov et. al., 2013. Distributed representation of words and phrases and their compositionality]
+         
+             - Rather than runing a softmax classification among the hole text corpus of size T<sub>x</sub>, we run T<sub>x</sub> distinct logistic regressions on small training sets comprised of one positive example and k negative examples. Negative examples are radomaly sampled from the text corpus, where k range [2-5] for large datasets and [5-20] for smaller datasets.
+             - the model takes as inputs k+1 pairs of (context, target) and predict Y^ to be either positive or negative example.
+          - Rather than runing a softmax classification among the hole text corpus of size T<sub>x</sub>, we run T<sub>x</sub> distinct logistic regressions on small training sets comprised of one positive example and k negative examples. Negative examples are radomaly sampled from the text corpus, where k range [2-5] for large datasets and [5-20] for smaller datasets.
    
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
