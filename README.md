@@ -89,8 +89,11 @@ There is some analogy between image encoding through convolutional nets (resulti
         - Rather than runing a softmax classification among the hole text corpus of size T<sub>x</sub>, we run T<sub>x</sub> distinct logistic regressions on small training sets comprised of one positive example and k negative examples. Negative examples are radomaly sampled from the text corpus, where k range [2-5] for large datasets and [5-20] for smaller datasets
              
        - The logistic regression model takes as inputs k+1 pairs of (context, target) and learns the parameters (θ<sub>t</sub> and e<sub>c</sub>) to predict Y^ to be either positive or negative example
+             
              - Sigmoid prediction : Y^ = P(Y=1/t,c) = 1/(1+e<sup>-θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>)
+             
              - θ<sub>t</sub> : the target weights (as model parameters of the sigmoid unit)
+             
              - e<sub>c</sub> : the context embedding vector (as model parameters of the hidden layer)
              
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
