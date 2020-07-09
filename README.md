@@ -90,11 +90,11 @@ There is some analogy between image encoding through convolutional nets (resulti
              
        - The logistic regression model takes as inputs k+1 pairs of (context, target) and learns the parameters (θ<sub>t</sub> and e<sub>c</sub>) to predict Y^ to be either positive or negative example
              
-             - Sigmoid prediction : Y^ = P(Y=1/t,c) = 1/(1+e<sup>-θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>)
+        - Sigmoid prediction : Y^ = P(Y=1/t,c) = 1/(1+e<sup>-θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>)
              
-             - θ<sub>t</sub> : the target weights (as model parameters of the sigmoid unit)
-             
-             - e<sub>c</sub> : the context embedding vector (as model parameters of the hidden layer)
+        - θ<sub>t</sub> : the target weights (as model parameters of the sigmoid unit)
+              
+        - e<sub>c</sub> : the context embedding vector (as model parameters of the hidden layer)
              
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
