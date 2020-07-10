@@ -98,8 +98,13 @@ There is some analogy between image encoding through convolutional nets (resulti
             - the authors of the paper referred above, recommend to use a heuristic to sample Negative examples based on their frequency, yet they found a metric somewhere in between uniform distribution and empirical frequency distribution 
               - P((w<sub>i</sub>) = f(w<sub>i</sub>)<sup>3/4</sup> / Sum<sub>j=1</sub> <sup>T<sub>x</sub></sup>(f(w<sub>j</sub>)<sup>3/4</sup>), where f is empirical distribution function for words in the text corpus.
 
-      3. GloVe algorithm
+      3. GloVe algorithm (less popular than skip-gram or word2vec), but still interesting to consider [Pennington et. al., 2014. GloVe: global vectors for word representation]
       
+            - Given a sampled pair of words, context (c) and target (t), let X<sub>tc</sub> be the number of times that a target word t appears in the context c, that is how frequent t appears close to the context c.
+            - Learn embedding vectors e<sub>c</sub> and target vectors θ<sub>t</sub><sup>T</sup>, such as their innner product minimizes the square distance to the log frequency vector X<sub>tc</sub>. Gradient descent can be used to optimize this square distance:
+            
+            - minimize Sum<sub>t=1</sub> <sup>T<sub>x</sub></sup> (Sum<sub>c=1</sub> <sup>T<sub>x</sub></sup>(θ<sub>t</sub><sup>T</sup>e<sub>c</sub> - logX<sub>tc</sub>)<sup>2</sup>
+            
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
  3. Similarities that hold in n-densional space, may not hold after t-SNE mapping. t-SNE algorithm takes an n-dimensional vector and maps it in a non-linear way to a 2-dimensional space
