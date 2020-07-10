@@ -105,7 +105,7 @@ There is some analogy between image encoding through convolutional nets (resulti
             
             - minimize the loss function: Sum<sub>t=1</sub> <sup>T<sub>x</sub></sup> (Sum<sub>c=1</sub> <sup>T<sub>x</sub></sup>f(X<sub>tc</sub>)(θ<sub>t</sub><sup>T</sup>e<sub>c</sub> + b<sub>t</sub> + b<sub>c</sub> - logX<sub>tc</sub>)<sup>2</sup>), where f is a weighting term that neutralize the case where X<sub>tc</sub>=0. In addition the choice of this heuristic f, should prevent from giving less frequent words too little weights and giving frequent words too much undue weights.
             
-            - to train the algorithm, initialize e<sub>c</sub> and θ<sub>t</sub> with uniformally random distibution, run gradient descent to minimize the loss function, and then for each word, take the average of e<sub>c</sub> and θ<sub>t</sub> to compute the final embedding vector for a given pair (c,t). We can simply use the arithmetic average because e<sub>c</sub> and θ<sub>t</sub> are symetric under the GloVe model.
+            - to train the algorithm, initialize e<sub>c</sub> and θ<sub>t</sub> with uniformally random distibution, run gradient descent to minimize the loss function, and then for each word, take the average of e<sub>c</sub> and θ<sub>t</sub> to compute the final embedding vector for a given pair (c,t). Here we can simply use the arithmetic average because e<sub>c</sub> and θ<sub>t</sub> are symetric under the GloVe model.
             
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
