@@ -118,7 +118,19 @@ There is some analogy between image encoding through convolutional nets (resulti
     - cosine(u,v) = (u<sup>T</sup>v) / (||u||<sub>2</sub> ||v||<sub>2</sub>)
     
     Another way of measuring the similarity between u and v, is based on the euclidean distance between these two vectors.
- 
+
+ 3. Sentiment classification problem allows to score to serve a decision-taking process. Although there is a lack of sizable training set, words embedding helps to train algorithms even on small datasets
+
+    - Transfer learnt embedding vectors from pre-trained algorithm and use them to represent words in the text corpus
+    
+    - Given a piece of text, extract the embedding vectors for each word (multiply the word one hot vector by the embedding matrix) and average the resulting embedding vectors that represent the piece of text being scored.
+    
+    - Feed the average embeding vector to a softmax classifier to predict the score.
+    
+    - This construction is orthogonal to words order, hence positive words may get frequently involved in a negative sentiment, leading the softmax classifer to predict a false good score. One way of solving this issue is to use RNNs architectures.
+    
+    - Train a many-to-one RNN architecture that takes as inputs the embedding vectors associated to the words of the piece of text being scored, and feed the last forward activation value to a softmax classifier to predict the score.
+    
  5. Eliminates biases such as gender, ethnicity, relegion 
  
 ## Unidirectional recursive neural networks (RNN)
