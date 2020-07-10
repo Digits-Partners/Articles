@@ -127,9 +127,9 @@ There is some analogy between image encoding through convolutional nets (resulti
     
     - Feed the average embeding vector to a softmax classifier to predict the score.
     
-    - This construction is orthogonal to words order, hence positive words may get frequently involved in a negative sentiment, leading the softmax classifer to predict a false good score. One way of solving this issue is to use RNNs architectures.
+    - This construction is orthogonal to words order. for instance if positive words  get frequently involved in a negative sentiment, the softmax classifer will predict a false good score. One way of solving this issue is to use RNNs architectures.
     
-    - Train a many-to-one RNN architecture that takes as inputs the embedding vectors associated to the words of the piece of text being scored, and feed the last forward activation value to a softmax classifier to predict the score.
+    - Train a many-to-one RNN that takes as inputs the embedding vectors associated to the words of the piece of text being scored, and feed the last forward activation value to a softmax classifier to predict the score.
     
  5. Eliminates biases such as gender, ethnicity, relegion 
  
