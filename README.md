@@ -103,7 +103,7 @@ There is some analogy between image encoding through convolutional nets (resulti
             - Given a sampled pair of words, context (c) and target (t), let X<sub>tc</sub> be the number of times that a target word t appears in the context c, that is how frequent t appears close to the context c.
             - Learn embedding vectors e<sub>c</sub> and target vectors θ<sub>t</sub><sup>T</sup>, such as their innner product minimizes the square distance to the log frequency vector X<sub>tc</sub>. Gradient descent can be used to optimize this square distance:
             
-            - minimize Sum<sub>t=1</sub> <sup>T<sub>x</sub></sup> (Sum<sub>c=1</sub> <sup>T<sub>x</sub></sup>f(X<sub>tc</sub>)(θ<sub>t</sub><sup>T</sup>e<sub>c</sub> - logX<sub>tc</sub>)<sup>2</sup>), where f is a weighting term that neutralize the case where X<sub>tc</sub>=0. In addition f gives more weights to even less frequent
+            - minimize Sum<sub>t=1</sub> <sup>T<sub>x</sub></sup> (Sum<sub>c=1</sub> <sup>T<sub>x</sub></sup>f(X<sub>tc</sub>)(θ<sub>t</sub><sup>T</sup>e<sub>c</sub> + b<sub>t</sub> + b<sub>c</sub> - logX<sub>tc</sub>)<sup>2</sup>), where f is a weighting term that neutralize the case where X<sub>tc</sub>=0. In addition the choice of this heuristic f, should prevent from giving less frequent words too little weights and giving frequent words too much undue weights.
             
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
