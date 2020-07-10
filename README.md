@@ -107,7 +107,7 @@ There is some analogy between image encoding through convolutional nets (resulti
             
             - to train the algorithm, initialize e<sub>c</sub> and θ<sub>t</sub> with uniformally random distibution, run gradient descent to minimize the loss function, and then for each word, take the average of e<sub>c</sub> and θ<sub>t</sub> to compute the final embedding vector for a given pair (c,t). Here we can simply use the arithmetic average because e<sub>c</sub> and θ<sub>t</sub> are symetric under the GloVe model.
 
-      4. One last observation regarding all the algorithms mentioned above, is that they can not guarantee that the embedding vectors learnt, are always interpretable as they are not always aligned with feature axis that humans can easily identify.
+      4. One last observation regarding all the algorithms mentioned above, is that they can not guarantee that the embedding vectors learnt, are always interpretable as θ<sub>t</sub><sup>T</sup>e<sub>c</sub> is not always aligned with feature axis that humans can easily comprehend.
       
    2. Take advantage from an existing pre-trained word embeding network and transfer its learning to your specific task (smaller training set), in particular tasks like name entity recognition, core reference resolution, text sumurization
    
