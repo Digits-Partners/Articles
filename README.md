@@ -78,7 +78,7 @@ There is some analogy between image encoding through convolutional nets (resulti
       
       3. In the case of large scale neural networks, some computational challenges may araise while using the softmax classifier. Making prediction slows down as the text corpus gets larger. This is because for each prediction we need to sum up over all the embedding vectors of text corpus. In this case, the computaitonal cost scales linearly with the text corpus size. 
       
-         One way of speeding up the hierarchical softmax is to use a binary classifier. In this configuration the text corpus is represented by a binary tree, namely Huffman tree, where the root node (parent) holds the complete text corpus, the leafs can be represented by the individual words in the text corpus. Each parent node is subdivided into two distinct sub groups (parent = union of sub groups). 
+         One way of speeding up the softmax classifier is to use a binary classifier called hierarchical softmax. In this configuration the text corpus is represented by a binary tree, namely Huffman tree, where the root node (parent) holds the complete text corpus, the leafs can be represented by the individual words in the text corpus. Each parent node is subdivided into two distinct sub groups (parent = union of sub groups). 
          
          The tree is not balanced, the nodes are of different sizes. The idea here is to choose a heuristic that minimizes the path length from root to leaf, in particular for frequent words, pushing down infrequent words deeper in the tree. In addition, when sampling the context, excessively frequent words that are irrelevant to the words embedding exercise, should be ignored/assigned very low weights by the chosen heuristic.
                   
