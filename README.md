@@ -88,7 +88,7 @@ There is some analogy between image encoding through convolutional nets (resulti
             
             - Rather than running a T<sub>x</sub> softmax classifier (one shot training set classification among T<sub>x</sub> words), we run T<sub>x</sub> distinct logistic regressions on much smaller training sets comprised of one positive example and k negative examples. Negative examples are randomaly sampled from the text corpus, where k range [2-5] for large datasets and [5-20] for smaller datasets.
              
-            - The logistic regression model takes as inputs k+1 pairs of (context, target) and trains a shallow neural network to learn the parameters (θ<sub>t</sub> and e<sub>c</sub>) and predict Y^, either to be positive or negative with respect to each word in the text corpus, ie we run T<sub>x</sub> binary classfiers on a training set of size k+1, where k << T<sub>x</sub>, hence it is computationaly less expensive than the softmax classifier.
+            - The logistic regression model takes as inputs k+1 pairs of (context, target) and trains a shallow neural network to learn the parameters (θ<sub>t</sub> and e<sub>c</sub>) and predict Y^, either to be positive or negative for each word in the text corpus, ie we run T<sub>x</sub> binary classfiers on a training set of size k+1, where k << T<sub>x</sub>, hence it is computationaly less expensive than the softmax classifier whitch performs the classification on a much larger training set.
         
               - Sigmoid prediction : Y^ = P(Y=1/t,c) = 1/(1+e<sup>-θ<sub>t</sub><sup>T</sup>e<sub>c</sub></sup>)
               - θ<sub>t</sub> : the target weights (as model parameters of the sigmoid unit)
