@@ -131,7 +131,7 @@ There is some analogy between image encoding through convolutional nets (resulti
     
     - Train a many-to-one RNN that takes as inputs the embedding vectors associated to the words from the piece of text being scored, and feed the last forward activation value to a softmax classifier to predict the score.
     
- 5. Eliminates biases such as gender, ethnicity, relegion 
+ 5. Eliminates biases such as gender, ethnicity, relegion [Bolukbasi et. al., 2016. Man is to computer programmer as woman is to homeworker? Debiasing word embeddings]
  
 ## Unidirectional recursive neural networks (RNN)
 
