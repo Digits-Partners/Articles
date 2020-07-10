@@ -119,7 +119,7 @@ There is some analogy between image encoding through convolutional nets (resulti
     
     Another way of measuring the similarity between u and v, is based on the euclidean distance between these two vectors.
 
- 3. Sentiment classification problem allows to score to serve a decision-taking process. Although there is a lack of sizable training set, words embedding helps to train algorithms even on small datasets
+ 3. Sentiment classification problem allows to score a piece of text to serve a decision-taking process. Although there is a lack of sizable training set, words embedding helps to train algorithms even on small datasets
 
     - Transfer learnt embedding vectors from pre-trained algorithm and use them to represent words in the text corpus
     
