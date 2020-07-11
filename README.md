@@ -266,7 +266,7 @@ A couple of algorithms maight be used to solve this optimization problem:
  
  The algorithm continues on processing the following words using the same procedure described in (2). When it reaches the last word to predict Y<sup>\<T<sub>y</sub>\></sup>, the beam search uses the full decoder network from Y<sup>\<1\></sup> to Y<sup>\<T<sub>y</sub>\></sup> to evaluate three distributions, namely P(Y<sup>\<T<sub>y</sub>\></sup> / X, Y<sup>\<1\></sup>={uplet1}), P(Y<sup>\<T<sub>y</sub>\></sup> / X, Y<sup>\<1\></sup>={uplet2}) and P(Y<sup>\<T<sub>y</sub>\></sup> / X, Y<sup>\<1\></sup>={uplet3}), where uplet1, uplet2, uplet3 represent each a T<sub>y</sub>-1 sequence of predicted words. Finally it will select the uplet of words that maximizes the joint probability:
  
- P(Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>  / X) =  P(Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup> / X) x P(Y<sup>\<T<sub>y</sub>\></sup> / X, Y<sup>\<1\></sup>={{uplet1}, {uplet2}, {uplet3}}), where Y<sup>\<T<sub>y</sub>\></sup> is ditributed among the T<sub>x</sub> words in the text corpus.
+ P(Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>  / X) =  P(Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup> / X) x P(Y<sup>\<T<sub>y</sub>\></sup> / X, Y<sup>\<1\></sup>=[{uplet1}, {uplet2}, {uplet3}]), where Y<sup>\<T<sub>y</sub>\></sup> is ditributed among the T<sub>x</sub> words in the text corpus.
 
  ### Attention model
 
