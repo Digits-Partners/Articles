@@ -271,9 +271,9 @@ A couple of algorithms maight be used to solve this optimization problem:
    
        - P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>} / X) x P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet1}, {uplet2}, {uplet3}]), 
        
-       - P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  Product<sub>t=1</sub><sup>\<T<sub>y</sub>\></sup> P(Y<sup>\<t\></sup> / {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet1}, {uplet2}, {uplet3}])
-       
-       where Y<sup>\<T<sub>y</sub>\></sup> is ditributed among the T<sub>x</sub> words in the text corpus.
+       - P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  Product<sub>t=1</sub><sup>\<T<sub>y</sub>\></sup> P(Y<sup>\<t\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet1}, {uplet2}, {uplet3}])
+ 
+         where Y<sup>\<T<sub>y</sub>\></sup> is ditributed among the T<sub>x</sub> words in the text corpus.
 
  - Beam search : Given a hyper parameter B called "Beam width" that serves to select the B most likeley words, the Beam search approximizes the predicted translation by searching for Y that maximizes the joint conditional 
  
