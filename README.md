@@ -246,7 +246,9 @@ In this case the encoder will mostly use a pretrained convolutional networks (Al
 
 Traditional language models estimate the conditional probability of a particular target word by sampling at random, the words from corpus distribution given the context word(s). 
 
-in the case of Machine translation models, the decoder plays the role of a language model except it is now conditional to the encoder input and the sampled translated sentence, from the conditional distribution, should be at best fit and not at random, ie rather than just picking randomaly one translation sampled from the condition distribution, we want to search for the best translation that maximizes the conditional probability argmax<sub>Y<sup>\<1\></sup>, ..., <sup>\<T<sub>y</sub>\></sup></sub> P(Y<sup>\<1\></sup>, ..., <sup>\<T<sub>y</sub>\></sup> / x)
+in the case of Machine translation models, the decoder plays the role of a language model except it is now conditional to the encoder input and the sampled translated sentence, from the conditional distribution, should be at best fit and not at random, ie rather than just picking randomaly one translation sampled from the condition distribution, we want to search for the best translation that maximizes the conditional probability :
+
+  - Argmax<sub>Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup></sub> P(Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup> / x)
 
  ### Attention model
 
