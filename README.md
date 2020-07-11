@@ -235,7 +235,8 @@ The prediction Y^ at time t is based on both forward and backward activation val
  
 Elementary blocks within the BRNN can either be GRU or LSTM.
 
-## Attention model
+## Sequence-to sequence models
+ ### Attention model
 
 ## Conclusion
 
