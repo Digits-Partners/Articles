@@ -248,7 +248,7 @@ Traditional language models estimate the conditional probability of a particular
 
 in the case of Machine translation models, the decoder plays the role of a language model except it is now conditional to the encoder input and the sampled translated sentence, from the conditional distribution, should be at best fit and not at random, ie rather than just picking randomaly one translation sampled from the condition distribution, we want to search for the best translation that maximizes the conditional probability :
 
-  - Argmax<sub>Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup></sub> P(Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup> / x)
+  - Argmax <sub>Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup></sub> P(Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup> / x)
 
  ### Attention model
 
