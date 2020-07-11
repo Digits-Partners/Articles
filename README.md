@@ -264,7 +264,7 @@ A couple of algorithms maight be used to solve this optimization problem:
  
    In this case the algorithm will pickup the most likely P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) among 3xT<sub>x</sub> joint probabilities.
  
-  3. The algorithm continues on processing the following words using the same procedure described in (2). When it reaches the last word to predict Y<sup>\<T<sub>y</sub>\></sup>, the beam search uses the full decoder network from Y<sup>\<1\></sup> to Y<sup>\<T<sub>y</sub>\></sup> to evaluate three distributions, namely:
+  3. The algorithm continues on processing the next words in the sequence, using the same procedure described in (2). When it reaches the last word to predict Y<sup>\<T<sub>y</sub>\></sup>, the beam search uses the full decoder network from Y<sup>\<1\></sup> to Y<sup>\<T<sub>y</sub>\></sup> to evaluate three distributions, namely:
    - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet1}) 
    - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet2})
    - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet3}), where uplet1, uplet2, uplet3 represent each a (T<sub>y</sub>-1) sequence of predicted words. Finally the beam search selects the uplet of words that maximizes the joint probability:
