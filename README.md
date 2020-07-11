@@ -275,7 +275,7 @@ A couple of algorithms maight be used to solve this optimization problem:
  
          where Y<sup>\<T<sub>y</sub>\></sup> is ditributed among the T<sub>x</sub> words in the text corpus.
 
- - Beam search : Given a hyper parameter B called "Beam width" that serves to select the B most likeley words, the Beam search approximizes the predicted translation by searching for Y that maximizes the joint conditional 
+ - Beam search results in some numerical underflow when the length of the sequence T<sub>y</sub> increases. This is due to the fact that we maximize the product of all the conditional probabilities. One way of fixing this numerical issue is to maximize the log product of these probabilities (as the log is monotonically ascendent function), whitch is equivlent to maximizing the sum of the log probabilities
  
  ### Attention model
 
