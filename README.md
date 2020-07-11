@@ -279,7 +279,7 @@ A couple of algorithms maight be used to solve this optimization problem:
  
  In addition, because beam search is better doing with short sequences vs. longer sequences, we also need to normalize the maximization goal by (1/T<sub>y<sup>α</sup></sub>) where α ranges between 0 and 1:
    
-   argmax<sub>Y<sup> (1/T<sub>y<sup>α</sup></sub>) x Sum<sub>t=1</sub><sup>\<T<sub>y</sub>\></sup> log(P(Y<sup>\<t\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet1}, {uplet2}, {uplet3}]))
+   argmax<sub>Y</sub> (1/T<sub>y<sup>α</sup></sub>) x Sum<sub>t=1</sub><sup>\<T<sub>y</sub>\></sup> log(P(Y<sup>\<t\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet1}, {uplet2}, {uplet3}]))
  
  ### Attention model
 
