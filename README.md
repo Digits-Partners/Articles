@@ -256,17 +256,20 @@ A couple of algorithms maight be used to solve this optimization problem:
  
  - Beam search : Given a hyper parameter B called "Beam width" that serves to select the B most likeley words, the Beam search approximizes the predicted translation by searching for Y that maximizes the joint conditional probability P(Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup> / X). 
  
- 1. To predict the first word, the beam search evaluates the distribution of P(Y<sup>\<1\></sup> / X) using a softmax classifier among  T<sub>x</sub> words in the text corpus, given X. Next the beam search will retain only the B most likely possible words, let's say B=3, that is words w11, w12, w13.
+  1. To predict the first word, the beam search evaluates the distribution of P(Y<sup>\<1\></sup> / X) using a softmax classifier among  T<sub>x</sub> words in the text corpus, given X. Next the beam search will retain only the B most likely possible words, let's say B=3, that is words w11, w12, w13.
  
- 2. For the second word prediction, the beam search uses a portion of the decoder network from Y<sup>\<1\></sup> to Y<sup>\<2\></sup> to evaluate three distributions (B=3), namely P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>=w11), P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>=w12) and P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>=w13). Next it will select the three pairs of words that maximizes the joint probability:
+  2. For the second word prediction, the beam search uses a portion of the decoder network from Y<sup>\<1\></sup> to Y<sup>\<2\></sup> to evaluate three distributions (B=3), namely P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>=w11), P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>=w12) and P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>=w13). Next it will select the three pairs of words that maximizes the joint probability:
  
- P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) =  P(Y<sup>\<1\></sup> / X) x P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>={w11, w12, w13}), where Y<sup>\<2\></sup> is ditributed among the T<sub>x</sub> words in the text corpus. 
+   P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) =  P(Y<sup>\<1\></sup> / X) x P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>={w11, w12, w13}), where Y<sup>\<2\></sup> is ditributed among the T<sub>x</sub> words in the text corpus. 
  
- In this case the algorithm will pickup the most likely P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) among 3xT<sub>x</sub> joint probabilities.
+   In this case the algorithm will pickup the most likely P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) among 3xT<sub>x</sub> joint probabilities.
  
- The algorithm continues on processing the following words using the same procedure described in (2). When it reaches the last word to predict Y<sup>\<T<sub>y</sub>\></sup>, the beam search uses the full decoder network from Y<sup>\<1\></sup> to Y<sup>\<T<sub>y</sub>\></sup> to evaluate three distributions, namely P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet1}), P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet2}) and P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet3}), where uplet1, uplet2, uplet3 represent each a T<sub>y</sub>-1 sequence of predicted words. Finally it will select the uplet of words that maximizes the joint probability:
- 
- P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>} / X) x P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet1}, {uplet2}, {uplet3}]), where Y<sup>\<T<sub>y</sub>\></sup> is ditributed among the T<sub>x</sub> words in the text corpus.
+  3. The algorithm continues on processing the following words using the same procedure described in (2). When it reaches the last word to predict Y<sup>\<T<sub>y</sub>\></sup>, the beam search uses the full decoder network from Y<sup>\<1\></sup> to Y<sup>\<T<sub>y</sub>\></sup> to evaluate three distributions, namely:
+   - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet1}) 
+   - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet2})
+   - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet3}), where uplet1, uplet2, uplet3 represent each a (T<sub>y</sub>-1) sequence of predicted words. Finally the beam search selects the uplet of words that maximizes the joint probability:
+   
+   - P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>} / X) x P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet1}, {uplet2}, {uplet3}]), where Y<sup>\<T<sub>y</sub>\></sup> is ditributed among the T<sub>x</sub> words in the text corpus.
 
  ### Attention model
 
