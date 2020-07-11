@@ -238,7 +238,15 @@ Elementary blocks within the BRNN can either be GRU or LSTM.
 ## Sequence-to sequence models
 Mainly used in machine translation and speech recognition [Sutskever et. al., 2014. Sequence to sequence learning with neural networks] and [Cho et. al., 2014 Learning phrase representation using RNN encoder-decoder for statistical machine learning]
 
-- Machine translation could be achiedved through an encoder-decoder architecture, built based on a many-to-one RNN (encoder either GRU or LSTM) that takes as inputs the original language sequence and feeds the last forward activation value to a one-to-many RNN (the decoder either GRU or LSTM) whitch outputs the translated sequence in the target language. This type of architecture also works well for image captioning, where the model predict the textual expressions of the items present in an image. [MAo et. al., 2014. Deep captioning with multimodel recurrent neural networks] [Vinyals et. al., 2014. Show and tell: Neural image generator] [Karpathy and Li et. al., 2015. Deep visual-semantic alignments for generating image descriptions]. In this case the encoder will mostly use a pretrained convolutional networks (AlexNet, LeNet ...) to learn the features vector for the input image (up to the last full connected layer). The features vectors then feeds to a one-to-many RNN (GRU or LSTM) to outputs the text sequence related to the items that could be identified on the input image.
+- Machine translation could be achiedved through an encoder-decoder architecture, built based on a many-to-one RNN (encoder either GRU or LSTM) that takes as inputs the original language sequence and feeds the last forward activation value to a one-to-many RNN (the decoder either GRU or LSTM) whitch outputs the translated sequence in the target language. 
+
+This type of architecture works also well for image captioning, where the model predicts the textual expressions of the items present in an image. [MAo et. al., 2014. Deep captioning with multimodel recurrent neural networks] [Vinyals et. al., 2014. Show and tell: Neural image generator] [Karpathy and Li et. al., 2015. Deep visual-semantic alignments for generating image descriptions].
+
+In this case the encoder will mostly use a pretrained convolutional networks (AlexNet, LeNet ...) to learn the features vector for the input image (up to the last full connected layer). The features vector then feeds to a one-to-many RNN (GRU or LSTM) to outputs the text sequence related to the items that could be identified on the input image.
+
+Traditional language models estimate the conditional probability of a particular target word by sampling at random, the words from corpus distribution given the context word(s). 
+
+in the case of Machine translation models, the decoder plays the role of a language model except it is now conditional to the encoder input and the sampled translated sentence, from the conditional distribution, should be at best fit and not at random, ie rather than just picking randomaly one translation sampled from the condition distribution, we want to search for the best translation that maximizes the conditional probability argmax<sub>Y<sup>\<1\></sup>, ..., <sup>\<T<sub>y</sub>\></sup></sub> P(Y<sup>\<1\></sup>, ..., <sup>\<T<sub>y</sub>\></sup> / x)
 
  ### Attention model
 
