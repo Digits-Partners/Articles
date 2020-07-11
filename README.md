@@ -70,7 +70,7 @@ There is some analogy between image encoding through convolutional nets (resulti
 
             - Loss function : L(Y, Y^) = -Sum<sub>i=1</sub><sup>n</sup>(Y<sub>i</sub>log(Y^<sub>i</sub>))
       
-         To learn the model parameters (the targets weights θ<sub>t</sub> and the context embedding vectors e<sub>c</sub>), we backpropagate loss partial derivatives with respect to these parameters, then we run the loss optimization process (gradient descent or equivalent) to maximize the training set log-likelihood. . 
+         To learn the model parameters (the targets weights θ<sub>t</sub> and the context embedding vectors e<sub>c</sub>), we backpropagate loss partial derivatives with respect to these parameters, then we run the loss optimization process (gradient descent or equivalent) to maximize the training set log-likelihood. 
          
          One extension of the above algorithm is to predict a target word given a certain context of words arround the target.         
       
@@ -254,18 +254,19 @@ A couple of algorithms maight be used to solve this optimization problem:
 
   - Greedy search: it looks for the best first word that maximizes the conditional probability P(Y<sup>\<1\></sup> / X) and then looks for the second word that that maximizes P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) and so forth up to P(Y<sup>\<1\></sup>, ...,Y<sup>\<T<sub>y</sub>\></sup> / X). This approach does not work well as it maximizes only the marginal cumulative probability of each predicted word but not the joint probability of all predicted words simulataneously.
  
- - Beam search : it approximizes the predicted translation by searching for the most likely Y that maximize the joint conditional probability discussed above P(Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup> / X). 
- 1. For the first, the beam search uses a fragment of the decoder network up to Y<sup>\<1\></sup> to evaluate the distribution of word distribution P(Y<sup>\<1\></sup> / X), predicted by a T<sub>x</sub> softmax. Next the beam search will retain only the B most likely possible words, let's say w11, w12, w13. B is called the "Beam width". 
+ - Beam search : Given a hyper parameter B called "Beam width" that serves to select the B most likeley words, the Beam search approximizes the predicted translation by searching for Y that maximizes the joint conditional probability P(Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup> / X). 
  
- 2. For the second word prediction, the beam search uses a fragment of the decoder network up to Y<sup>\<2\></sup> to evaluate three distributions, namely P(Y<sup>\<2\></sup> / X, w1), P(Y<sup>\<2\></sup> / X, w2) and P(Y<sup>\<2\></sup> / X, w3). Next it will select the three pairs of words that maximizes the joint probability:
+ 1. To predict the first word, the beam search evaluates the distribution of P(Y<sup>\<1\></sup> / X) using a softmax classifier among  T<sub>x</sub> words in the text corpus, given X. Next the beam search will retain only the B most likely possible words, let's say B=3, that is words w11, w12, w13.
  
- P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) =  P(Y<sup>\<1\></sup> / X) x P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>)
+ 2. For the second word prediction, the beam search uses a portion of the decoder network from Y<sup>\<1\></sup> to Y<sup>\<2\></sup> to evaluate three distributions (B=3), namely P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>=w11), P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>=w12) and P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>=w13). Next it will select the three pairs of words that maximizes the joint probability:
  
- Where:
- P(Y<sup>\<1\></sup> / X) is sampled from a distribution of 3 probabilities related to w1, w2, w3 
- P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>) is sampled from the union of the three distributions P(Y<sup>\<2\></sup> / X, w1), P(Y<sup>\<2\></sup> / X, w2) and P(Y<sup>\<2\></sup> / X, w3).
+ P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) =  P(Y<sup>\<1\></sup> / X) x P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>={w11, w12, w13}), where Y<sup>\<2\></sup> is ditributed among the T<sub>x</sub> words in the text corpus. 
  
+ In this case the algorithm will pickup the most likely P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) among 3xT<sub>x</sub> joint probabilities.
  
+ The algorithm continues on processing the following words using the same procedure described in (2). When it reaches the last word to predict Y<sup>\<T<sub>y</sub>\></sup>, the beam search uses the full decoder network from Y<sup>\<1\></sup> to Y<sup>\<T<sub>y</sub>\></sup> to evaluate three distributions, namely P(Y<sup>\<T<sub>y</sub>\></sup> / X, Y<sup>\<1\></sup>={uplet1}), P(Y<sup>\<T<sub>y</sub>\></sup> / X, Y<sup>\<1\></sup>={uplet2}) and P(Y<sup>\<T<sub>y</sub>\></sup> / X, Y<sup>\<1\></sup>={uplet3}), where uplet1, uplet2, uplet3 represent each a T<sub>y</sub>-1 sequence of predicted words. Finally it will select the uplet of words that maximizes the joint probability:
+ 
+ P(Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>  / X) =  P(Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup> / X) x P(Y<sup>\<T<sub>y</sub>\></sup> / X, Y<sup>\<1\></sup>={{uplet1}, {uplet2}, {uplet3}}), where Y<sup>\<T<sub>y</sub>\></sup> is ditributed among the T<sub>x</sub> words in the text corpus.
 
  ### Attention model
 
