@@ -246,9 +246,26 @@ In this case the encoder will mostly use a pretrained convolutional networks (Al
 
 Traditional language models estimate the conditional probability of a particular target word by sampling at random, the words from corpus distribution given the context word(s). 
 
-in the case of Machine translation models, the decoder plays the role of a language model except it is now conditional to the encoder input and the sampled translated sentence, from the conditional distribution, should be at best fit and not at random, ie rather than just picking randomaly one translation sampled from the condition distribution, we want to search for the best translation that maximizes the conditional probability :
+in the case of Machine translation models, the decoder plays the role of a language model except it is now conditional to the encoder input X. In addition the sampled translated sentence, from the conditional distribution, should be at best fit and not at random, ie rather than just picking randomaly one translation sampled from the conditional distribution, we want to search for the best translation that maximizes the conditional probability. 
 
-  - argmax <sub>Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup></sub> P(Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup> / x)
+  - argmax <sub>Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup></sub> P(Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup> / X)
+
+A couple of algorithms maight be used to solve this optimization problem:
+
+  - Greedy search: it looks for the best first word that maximizes the conditional probability P(Y<sup>\<1\></sup> / X) and then looks for the second word that that maximizes P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) and so forth up to P(Y<sup>\<1\></sup>, ...,Y<sup>\<T<sub>y</sub>\></sup> / X). This approach does not work well as it maximizes only the marginal cumulative probability of each predicted word but not the joint probability of all predicted words simulataneously.
+ 
+ - Beam search : it approximizes the predicted translation by searching for the most likely Y that maximize the joint conditional probability discussed above P(Y<sup>\<1\></sup>, ..., Y<sup>\<T<sub>y</sub>\></sup> / X). 
+ 1. For the first, the beam search uses a fragment of the decoder network up to Y<sup>\<1\></sup> to evaluate the distribution of word distribution P(Y<sup>\<1\></sup> / X), predicted by a T<sub>x</sub> softmax. Next the beam search will retain only the B most likely possible words, let's say w11, w12, w13. B is called the "Beam width". 
+ 
+ 2. For the second word prediction, the beam search uses a fragment of the decoder network up to Y<sup>\<2\></sup> to evaluate three distributions, namely P(Y<sup>\<2\></sup> / X, w1), P(Y<sup>\<2\></sup> / X, w2) and P(Y<sup>\<2\></sup> / X, w3). Next it will select the three pairs of words that maximizes the joint probability:
+ 
+ P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) =  P(Y<sup>\<1\></sup> / X) x P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>)
+ 
+ Where:
+ P(Y<sup>\<1\></sup> / X) is sampled from a distribution of 3 probabilities related to w1, w2, w3 
+ P(Y<sup>\<2\></sup> / X, Y<sup>\<1\></sup>) is sampled from the union of the three distributions P(Y<sup>\<2\></sup> / X, w1), P(Y<sup>\<2\></sup> / X, w2) and P(Y<sup>\<2\></sup> / X, w3).
+ 
+ 
 
  ### Attention model
 
