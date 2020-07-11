@@ -236,6 +236,10 @@ The prediction Y^ at time t is based on both forward and backward activation val
 Elementary blocks within the BRNN can either be GRU or LSTM.
 
 ## Sequence-to sequence models
+Mainly used in machine translation and speech recognition [Sutskever et. al., 2014. Sequence to sequence learning with neural networks] and [Cho et. al., 2014 Learning phrase representation using RNN encoder-decoder for statistical machine learning]
+
+- Machine translation could be achiedved through an encoder-decoder architecture, built based on a many-to-one RNN (encoder either GRU or LSTM) that takes as inputs the original language sequence and feeds the last forward activation value to a one-to-many RNN (the decoder either GRU or LSTM) whitch outputs the translated sequence in the target language. This type of architecture also works well for image captioning, where the model predict the textual expressions of the items present in an image. [MAo et. al., 2014. Deep captioning with multimodel recurrent neural networks] [Vinyals et. al., 2014. Show and tell: Neural image generator] [Karpathy and Li et. al., 2015. Deep visual-semantic alignments for generating image descriptions]. In this case the encoder will mostly use a pretrained convolutional networks (AlexNet, LeNet ...) to learn the features vector for the input image (up to the last full connected layer). The features vectors then feeds to a one-to-many RNN (GRU or LSTM) to outputs the text sequence related to the items that could be identified on the input image.
+
  ### Attention model
 
 ## Conclusion
