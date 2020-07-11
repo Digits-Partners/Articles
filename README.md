@@ -131,7 +131,17 @@ There is some analogy between image encoding through convolutional nets (resulti
     
     - Train a many-to-one RNN that takes as inputs the embedding vectors associated to the words from the piece of text being scored, and feed the last forward activation value to a softmax classifier to predict the score.
     
- 5. Eliminates biases from text corpus, such as gender, ethnicity, relegion, wealth and other biases, [Bolukbasi et. al., 2016. Man is to computer programmer as woman is to homeworker? Debiasing word embeddings].
+ 5. Reduce/neutralize undesirable biases from text corpus, such as gender, ethnicity, relegion, wealth and other biases, [Bolukbasi et. al., 2016. Man is to computer programmer as woman is to homeworker? Debiasing word embeddings].
+
+    - Identify the bias axis and its orthogonal axis (non-bias). The bias axis can be derived by reducing the dimentionaly of the emebedding vectors through SVD (PCA like algorithm). if n is the size of the embedding vectors and m the nummber of principal components, then bias axis dimension equals m and the non-bias diemnsion equals n-m.
+
+    - Train a linear classifier to identify whitch words are specific to a particular bias and those that are not.
+
+    - Neutralize the bias for words that are not instrinsically/legitimately related to that bias. This can be done by projecting these words on the non-biais axis
+    
+    - re-align the intrinsic pairs on the non-bias axis, to ensure that a non-intrinsic word stands at the same distance from the intrinsic words pair.
+    
+
  
  
 ## Unidirectional recursive neural networks (RNN)
