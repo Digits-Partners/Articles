@@ -295,7 +295,7 @@ A couple of algorithms maight be used to solve this optimization problem:
          
       4. Estimate the overall ratio between the proportion of errors attributed to the beam search vs. RNN model
 
- - Use blue score model to evaluate machine translation accuracy [Papineni et. al., 2002. A method for automatic evaluation of machine translation]. Blue stands from BiLingual Evaluation Understudy (human substitute to evaluate quality). The accuracy metric on n-grams is given by the following equation:
+ - Use blue score model to evaluate accuracy for machine translation as well as image captioning sytems. [Papineni et. al., 2002. A method for automatic evaluation of machine translation]. Blue stands from BiLingual Evaluation Understudy (human substitute to evaluate quality). The accuracy metric on n-grams is given by the following equation:
  
    - P<sub>n</sub> = Sum<sub>n-grams ∈ Y^</sub>(Count_Clip(n-grams)) / Sum<sub>n-grams ∈ Y^</sub>(Count(n-grams))
      - where Count_Clip(n-grams) is the maximum number of occurance of n-grams across human and machiine references, and Count(n-grams) counts for the number of ocuurance of n-gmras in the predicted sequence Y^. 
