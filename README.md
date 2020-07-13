@@ -283,9 +283,17 @@ A couple of algorithms maight be used to solve this optimization problem:
  
    Compared to exact serach algorithms such as BFS (Breadth Fist Search) and DFS (Depth First Search), Beam serach runs faster but does not guarantee exact maximum of P(Y/X)
 
- - Error analysis on beam search
- 
- 
+ - Error analysis on beam search: As beam search quality is driven by the beam width hyper parameter, it might be worth to run an error analysis to attribute the errors either to beam serach or to other sources of errors (RNN model).
+    
+    1. Given an input sentence X, let Y^ be the predicted translation and Y<sup>*</sup> be the optimal translation. The errors attribution process follows the steps described bellow:
+      
+      1. For each example in the trainig/dev set, evaluate C1 : {P(Y<sup>*</sup> / X) ≤ P(Y^ / X)}
+         2. if C1 is true, then the beam serach failed to reach the maximization goal
+         3. Else, if C1 is false, then the RNN(encoder-decoder) failed to estimate P(Y/X)
+      4. Estimate the overall ratio between the proportion of errors attributed to the beam search vs. RNN model
+      
+
+
 ### Attention model
 
 ## Conclusion
