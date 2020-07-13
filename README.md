@@ -288,8 +288,11 @@ A couple of algorithms maight be used to solve this optimization problem:
     1. Given an input sentence X, let Y^ be the predicted translation and Y<sup>*</sup> be the optimal translation. The errors attribution process follows the steps described bellow:
       
       1. For each example in the trainig/dev set, evaluate C1 : {P(Y<sup>*</sup> / X) ≤ P(Y^ / X)}
-         2. if C1 is true, then the beam serach failed to reach the maximization goal
-         3. Else, if C1 is false, then the RNN(encoder-decoder) failed to estimate P(Y/X)
+      
+         2. if C1 is true, then the beam serach failed to reach the maximization goal and it might worth it to increase the beam width.
+         
+         3. Else, if C1 is false, then the RNN(encoder-decoder) failed to estimate P(Y/X) and this case you may go through overfitting vs. underfitting analysis to identify the root cause and figure out the workarrouand solution depending on hte outcome of the root cause analysis (try regularization, add some additional layers to learn additional features, or use more training data)
+         
       4. Estimate the overall ratio between the proportion of errors attributed to the beam search vs. RNN model
       
 
