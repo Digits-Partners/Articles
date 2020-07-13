@@ -283,6 +283,9 @@ A couple of algorithms maight be used to solve this optimization problem:
  
    Compared to exact serach algorithms such as BFS (Breadth Fist Search) and DFS (Depth First Search), Beam serach runs faster but does not guarantee exact maximum of P(Y/X)
 
+ - Error analysis on beam search
+ 
+ 
 ### Attention model
 
 ## Conclusion
