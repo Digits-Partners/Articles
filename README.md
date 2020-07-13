@@ -265,21 +265,21 @@ A couple of algorithms maight be used to solve this optimization problem:
        In this case the algorithm will pickup the most likely P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) among 3xT<sub>x</sub> joint probabilities.
  
     3. The algorithm continues on processing the next words in the sequence, using the same procedure described in (2). When it reaches the last word to predict Y<sup>\<T<sub>y</sub>\></sup>, the beam search uses the full decoder network from Y<sup>\<1\></sup> to Y<sup>\<T<sub>y</sub>\></sup> to evaluate three distributions, namely:
-       - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet1}) 
-       - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet2})
-       - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet3}), where uplet1, uplet2, uplet3 represent each a (T<sub>y</sub>-1) sequence of predicted words. Finally the beam search selects the uplet of words that maximizes the joint probability:
+       - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet<sub>1</sub>}) 
+       - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet<sub>2</sub>})
+       - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet<sub>T<sub>y</sub>-1</sub>}), where uplet1, uplet2, uplet3 represent each a (T<sub>y</sub>-1) sequence of predicted words. Finally the beam search selects the uplet of words that maximizes the joint probability:
    
-       - P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>} / X) x P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet1}, {uplet2}, {uplet3}]), 
+       - P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>} / X) x P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet<sub>1</sub>}, {uplet<sub>2</sub>}, {uplet<sub>T<sub>y</sub>-1</sub>}]), 
        
-       - P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  Product<sub>t=1</sub><sup>\<T<sub>y</sub>\></sup> P(Y<sup>\<t\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet1}, {uplet2}, {uplet3}])
+       - P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  Product<sub>t=1</sub><sup>\<T<sub>y</sub>\></sup> P(Y<sup>\<t\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet<sub>1</sub>}, {uplet<sub>2</sub>}, {uplet<sub>T<sub>y</sub>-1</sub>}])
  
-         where Y<sup>\<T<sub>y</sub>\></sup> is ditributed among the T<sub>x</sub> words in the text corpus.
+         where Y<sup>\<T<sub>y</sub>\></sup> is distributed among the T<sub>x</sub> words in the text corpus.
 
- - Beam search results in some numerical underflow when the length of the sequence T<sub>y</sub> increases. This is due to the fact that we maximize the product of all the conditional probabilities. One way of fixing this numerical issue is to maximize the log product of these probabilities (as the log is monotonically ascendent function), whitch is equivlent to maximizing the sum of the log probabilities. 
+ - When the length of the sequence T<sub>y</sub> increases, Beam search results in some numerical underflow. This is due to the fact that we maximize the product of all the conditional probabilities. One way of fixing this numerical issue is to maximize the log product of these probabilities (as the log is monotonically ascendent function), whitch is equivalent to maximizing the sum of the log probabilities. 
  
    In addition, because beam search is better doing with short sequences vs. longer sequences, we also need to normalize the maximization goal by (1/T<sub>y<sup>α</sup></sub>) where α ranges between 0 and 1:
    
-     argmax<sub>Y</sub> (1/T<sub>y<sup>α</sup></sub>) x Sum<sub>t=1</sub><sup>\<T<sub>y</sub>\></sup> log(P(Y<sup>\<t\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet1}, {uplet2}, {uplet3}]))
+     argmax<sub>Y</sub> (1/T<sub>y<sup>α</sup></sub>) x Sum<sub>t=1</sub><sup>\<T<sub>y</sub>\></sup> log(P(Y<sup>\<t\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet<sub>1</sub>}, {uplet<sub>2</sub>}, {uplet<sub>T<sub>y</sub>-1</sub>}]))
  
    Compared to exact serach algorithms such as BFS (Breadth Fist Search) and DFS (Depth First Search), Beam serach runs faster but does not guarantee exact maximum of P(Y/X)
 
