@@ -264,14 +264,14 @@ A couple of algorithms maight be used to solve this optimization problem:
  
        In this case the algorithm will pickup the most likely P(Y<sup>\<1\></sup>, Y<sup>\<2\></sup> / X) among 3xT<sub>x</sub> joint probabilities.
  
-    3. The algorithm continues on processing the next words in the sequence, using the same procedure described in (2). When it reaches the last word to predict Y<sup>\<T<sub>y</sub>\></sup>, the beam search uses the full decoder network from Y<sup>\<1\></sup> to Y<sup>\<T<sub>y</sub>\></sup> to evaluate three distributions, namely:
-       - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet<sub>1</sub>}) 
-       - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet<sub>2</sub>})
-       - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={uplet<sub>3xT<sub>x</sub></sub>}), where uplet1, uplet2, uplet<sub>T<sub>y</sub>-1</sub> represent each a (T<sub>y</sub>-1) sequence of predicted words. Finally the beam search selects the uplet of words that maximizes the joint probability:
+    3. The algorithm continues on processing the next words in the sequence (n-grams), using the same procedure described in (2). When it reaches the last word to predict Y<sup>\<T<sub>y</sub>\></sup>, the beam search uses the full decoder network from Y<sup>\<1\></sup> to Y<sup>\<T<sub>y</sub>\></sup> to evaluate three distributions, namely:
+       - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={n-grams<sub>1</sub>}) 
+       - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={n-grams<sub>2</sub>})
+       - P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}={n-grams<sub>3xT<sub>x</sub></sub>}), where n-grams<sub>1</sub>, n-grams<sub>2</sub>, n-grams<sub>T<sub>y</sub>-1</sub> represent each a (T<sub>y</sub>-1) sequence of predicted words. Finally the beam search selects the n-grams that maximizes the joint probability:
    
-       - P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>} / X) x P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet<sub>1</sub>}, {uplet<sub>2</sub>},...,  {uplet<sub>3xT<sub>x</sub></sub>}]), 
+       - P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>} / X) x P(Y<sup>\<T<sub>y</sub>\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{n-grams<sub>1</sub>}, {n-grams<sub>2</sub>},...,  {n-grams<sub>3xT<sub>x</sub></sub>}]), 
        
-       - P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  Product<sub>t=1</sub><sup>\<T<sub>y</sub>\></sup> P(Y<sup>\<t\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet<sub>1</sub>}, {uplet<sub>2</sub>},...,  {uplet<sub>3xT<sub>x</sub></sub>}])
+       - P({Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>\></sup>}  / X) =  Product<sub>t=1</sub><sup>\<T<sub>y</sub>\></sup> P(Y<sup>\<t\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{n-grams<sub>1</sub>}, {n-grams<sub>2</sub>},...,  {n-grams<sub>3xT<sub>x</sub></sub>}])
  
          where Y<sup>\<T<sub>y</sub>\></sup> is distributed among the T<sub>x</sub> words in the text corpus.
 
@@ -294,7 +294,19 @@ A couple of algorithms maight be used to solve this optimization problem:
          3. Else, if C1 is false, then the RNN(encoder-decoder) failed to estimate P(Y/X) and this case you may go through overfitting vs. underfitting analysis to identify the root cause and figure out the workarrouand solution depending on hte outcome of the root cause analysis (try regularization, add some additional layers to learn additional features, or use more training data)
          
       4. Estimate the overall ratio between the proportion of errors attributed to the beam search vs. RNN model
-      
+
+ - Use blue score model to evaluate machine translation accuracy [Papineni et. al., 2002. A method for automatic evaluation of machine translation]. Blue stands from BiLingual Evaluation Understudy (human substitute to evaluate quality). The accuracy metric on n-grams is given by the following equation:
+ 
+   - P<sub>n</sub> = Sum<sub>n-grams ∈ Y^</sub>(Count_Clip(n-grams)) / Sum<sub>n-grams ∈ Y^</sub>(Count(n-grams))
+     - where Count_Clip(n-grams) is the maximum number of occurance of n-grams across human and machiine references, and Count(n-grams) counts for the number of ocuurance of n-gmras in the predicted sequence Y^. 
+ 
+ - The combined Bleu score exponential average of the all the P<sub>i ∈ {1,2, ...,n}</sub>, adjusted by a brevity penalty BP intended to penalize too short translations:
+   
+   - BP exp (Arithmetic-Average<sub>i ∈ {1,2, ...,n}</sub>(P<sub>i</sub>))
+     
+     - BP = 1 if MT_output_length > reference_output_length
+     
+     - PB = exp (1 - (MT-MT_output_length/reference_output_length)) if MT_output_length < reference_output_length
 
 
 ### Attention model
