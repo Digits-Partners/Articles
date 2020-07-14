@@ -333,5 +333,7 @@ Under this contruction, the model learns how much attention should be paid to th
 
 The number of parameters to update in the attention model is T<sub>x</sub> x T<sub>y</sub>, where T<sub>x</sub> and T<sub>y</sub> are resp. the input and output lengths. This results in a quadratic computational cost.
 
+Attention model works well for speech recognition [Graves et. al., 2006. Connectionnist Temporal Classification: Labeling unsegmented sequence data with recurrent neural network]
+
 ## Conclusion
 
