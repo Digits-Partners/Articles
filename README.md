@@ -322,7 +322,7 @@ Use a BRNN (one hidden layer) to compute a set of features for each word in the 
  - α<sup>\<i,j\></sup> is the amount of attention that y<sup>i</sup> should pay to the feature f<sup>j</sup>. For each state these weights must sum to 1.
  
    - α<sup>\<i,j\></sup> = exp(e<sup>\<i,j\></sup>) / Sum<sub>j=1</sub><sup>N</sup>(e<sup>\<i,j\></sup>), where N is the number of attention weights
-   - To obtain e<sup>\<i,j\></sup>, train a small neural network to learn a function that maps the previous state s<sup>\<i-1\></sup> to f<sup>\<j\></sup>. This shows that the amount of attention given to f<sup>\<j\></sup> ismainly driven by the previous hidden state s<sup>\<i-1\></sup>.
+   - To obtain e<sup>\<i,j\></sup>, train a small neural network to learn a function that maps the previous state s<sup>\<i-1\></sup> to f<sup>\<j\></sup>. This shows that the amount of attention given to f<sup>\<j\></sup> is mainly driven by the previous hidden state s<sup>\<i-1\></sup>.
  
  - The context c<sup>i</sup> = Sum<sub>j=1</sub><sup>N</sup> (α<sup>\<i,j\></sup>a<sup>j</sup>)
 
