@@ -311,7 +311,7 @@ A couple of algorithms maight be used to solve this optimization problem:
 
 ### Attention model
 
-For encoder-decoder architectures, we observe that the bleu score starts to slow down as the sentence length increases. Attention model prevent the Bleu score from declining even when the sentence length gets longer. [Bahdanau et. al., 2014. Neural machine translation by jointly learning to align and translate]
+For encoder-decoder architectures, we observe that the bleu score starts to slow down as the sentence length increases. Attention model prevent the Bleu score from declining even when the sentence length gets longer. [Bahdanau et. al., 2014. Neural machine translation by jointly learning to align and translate] and [Xu et. al., 2015. Show, attend and tell: Neural image caption generation with visual attention]. The latter paper shows that attention models work well for image captioning.
 
 Use a BRNN (one hidden layer) to compute a set of features for each word in the sequence f<sup>1</sup>, f<sup>2</sup>, ... f<sup>T<sub>y</sub></sup>. Next we build a second RNN where each hidden state (unit) takes as input a context of features that the current state should be paying attention to, through attention weights α<sup>\<i,j\></sup> attributed to a pre-determined number of features, where i is the current hidden state and j is the attentionable feature, the number of attention weights (attention window) is a hyper-parameter, subject to calibration. The first building bloc of this construction is illustrated bellow:
 
@@ -329,10 +329,9 @@ Use a BRNN (one hidden layer) to compute a set of features for each word in the 
 Indeed for each hidden state, each eligible feature is given an attention weight that contributes to the prediction made by the hidden state. The conext is weighted average of the attentionable features. 
 
 
-
 Under this contruction, the model learns how much attention should be paid to the words features from the original language and hopefully fit the paramters to match the best translation.
 
-  
+The number of parameters to update in the attention model is T<sub>x</sub> x T<sub>y</sub>, where T<sub>x</sub> and T<sub>y</sub> are resp. the input and output lengths. This results in a quadratic computational cost.
 
 ## Conclusion
 
