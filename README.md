@@ -319,7 +319,15 @@ Use a BRNN (one hidden layer) to compute a set of features for each word in the 
    <img  src="./attention1.png" alt="1st bloc of Attention Model!" title="First bloc of attention model">
 </p>
 
-Indeed for each hidden state, each eligible feature is given an attention weight that contributes to the prediction made by the hidden state. Under this contruction, the model learns how much attention should be paid to the words features from the original language and hopefully fit the paramters to match the best translation.
+ - α<sup>\<i,j\></sup> is the amount of attention that y<sup>i</sup> should pay to the feature f<sup>j</sup>. For each state these weights must sum to 1.
+ 
+ - the context c<sup>i</sup> = Sum<sub>j=1</sub><sup>N</sup> (α<sup>\<i,j\></sup>a<sup>j</sup>)
+
+Indeed for each hidden state, each eligible feature is given an attention weight that contributes to the prediction made by the hidden state. The conext is weighted average of the attentionable features. 
+
+
+
+Under this contruction, the model learns how much attention should be paid to the words features from the original language and hopefully fit the paramters to match the best translation.
 
  
 
