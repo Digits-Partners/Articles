@@ -321,9 +321,9 @@ Use a BRNN (one hidden layer) to compute a set of features for each word in the 
 
  - α<sup>\<i,j\></sup> is the amount of attention that y<sup>i</sup> should pay to the feature f<sup>j</sup>. For each state these weights must sum to 1.
  
- α<sup>\<i,j\></sup> = exp(e<sup>\<i,j\></sup>) / Sum<sub>j=1</sub><sup>N</sup>(e<sup>\<i,j\></sup>)
+ α<sup>\<i,j\></sup> = exp(e<sup>\<i,j\></sup>) / Sum<sub>j=1</sub><sup>N</sup>(e<sup>\<i,j\></sup>), where N is the number of attention weights
  
- - The context c<sup>i</sup> = Sum<sub>j=1</sub><sup>N</sup> (α<sup>\<i,j\></sup>a<sup>j</sup>), where N is the number of attention weights
+ - The context c<sup>i</sup> = Sum<sub>j=1</sub><sup>N</sup> (α<sup>\<i,j\></sup>a<sup>j</sup>)
 
 Indeed for each hidden state, each eligible feature is given an attention weight that contributes to the prediction made by the hidden state. The conext is weighted average of the attentionable features. 
 
