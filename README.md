@@ -313,7 +313,7 @@ A couple of algorithms maight be used to solve this optimization problem:
 
 For encoder-decoder architectures, we observe that the bleu score starts to slow down as the sentence length increases. Attention model prevent the Bleu score from declining even when the sentence length gets longer. [Bahdanau et. al., 2014. Neural machine translation by jointly learning to align and translate]
 
-Use a BRNN (one hidden layer) to compute a set of features for each word in the sequence f<sup>1</sup>, f<sup>2</sup>, ... f<sup>T<sub>y</sub></sup>. Next we build a second RNN where each hidden state (unit) takes as input a context of features that the current state should be paying attention to, through attention weights α<sup>\<i,j\></sup> attributed to a pre-determined number of features, where i is the current hidden state and j is the attentionable feature, the number of attention weights (attention window) is a hyper-parameter, subject to calibration. The fist of this construction is illustrated bellow:
+Use a BRNN (one hidden layer) to compute a set of features for each word in the sequence f<sup>1</sup>, f<sup>2</sup>, ... f<sup>T<sub>y</sub></sup>. Next we build a second RNN where each hidden state (unit) takes as input a context of features that the current state should be paying attention to, through attention weights α<sup>\<i,j\></sup> attributed to a pre-determined number of features, where i is the current hidden state and j is the attentionable feature, the number of attention weights (attention window) is a hyper-parameter, subject to calibration. The first building bloc of this construction is illustrated bellow:
 
 <p align="center">
    <img  src="./attention.png" alt="1st bloc of Attention Model!" title="First bloc of attention model">
