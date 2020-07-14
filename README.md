@@ -317,7 +317,9 @@ Use a BRNN (one hidden layer) to compute a set of features for each word in the 
  
 Indeed for each hidden state, each eligible feature is given an attention weight that contributes to the prediction made by the hidden state. Under this contruction, the model learns how much attention should be paid to the words features from the original language and hopefully fit the paramters to match the best translation.
 
-
+<p align="center">
+   <img  src="./attention.png" alt="1st bloc of Attention Model!" title="First bloc of attention model">
+</p>
  
 
 ## Conclusion
