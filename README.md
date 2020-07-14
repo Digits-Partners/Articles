@@ -316,7 +316,7 @@ For encoder-decoder architectures, we observe that the bleu score starts to slow
 Use a BRNN (one hidden layer) to compute a set of features for each word in the sequence f<sup>1</sup>, f<sup>2</sup>, ... f<sup>T<sub>y</sub></sup>. Next we build a second RNN where each hidden state (unit) takes as input a context of features that the current state should be paying attention to, through attention weights α<sup>\<i,j\></sup> attributed to a pre-determined number of features, where i is the current hidden state and j is the attentionable feature, the number of attention weights (attention window) is a hyper-parameter, subject to calibration. The fist of this construction is illustrated bellow:
 
 <p align="center">
-   <img  src="./attention1.png" alt="1st bloc of Attention Model!" title="First bloc of attention model">
+   <img  src="./attention.png" alt="1st bloc of Attention Model!" title="First bloc of attention model">
 </p>
 
  - α<sup>\<i,j\></sup> is the amount of attention that y<sup>i</sup> should pay to the feature f<sup>j</sup>. For each state these weights must sum to 1.
