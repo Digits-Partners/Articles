@@ -311,5 +311,12 @@ A couple of algorithms maight be used to solve this optimization problem:
 
 ### Attention model
 
+For encoder-decoder architectures, we observe that the bleu score starts to slow down as the sentence length increases. Attention model prevent the Bleu score from declining even when the sentence length gets longer. [Bahdanau et. al., 2014. Neural machine translation by jointly learning to align and translate]
+
+Use a BRNN (one hidden layer) to compute a set of features for each word in the sequence f^<sup>1</sup>, f^<sup>2</sup>, ... f^<sup>T<sub>y</sub></sup>, Next we build a second RNN where each hidden state (unit) takes as input a context of features that must be captured by the current state through attention weights α<sup>\<i,j\></sup>, where i is the current hidden state and j is the attentionable feature, the number of attention fetures is a hyper-parameter is subject to calibration. Indeed for each hidden state, each eligible feature is given an attention weight that contributes to the prediction made by the hidden state. Under this contruction the model will be able to pay attention to relevant words features in the original language before predicting the associated word in the target language.
+
+
+ 
+
 ## Conclusion
 
