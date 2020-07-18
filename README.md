@@ -25,14 +25,14 @@ Most of these situations are adressed through a supervised learning problem, ie 
 
 In this post we will focus on NLP techniques to illustrate how RNNs can be used to handle text content where inputs and outputs can be different lenghts across different examples. We will also see how RNNs can allow features sharing across diffrent positions of the text (elements learned from one piece of a text, can generalize to the subequent parts of same text).
 
-## Process review 
+## Process pipeline 
 Taxonomy construction
-Sequence Pre-processing (tokenizing, stemming, ...)
+Sequence Pre-processing (lowecase, tokenizing, no (punctuation, urls, handles, stop words), stemming, ...)
 Features extraction
 Prepare traing set (input/labeled output)
 Define the cost function
 based on the extracted features, train a neural network to learn model parameters through cost function optimization 
-Model evaluation et testing
+Model evaluation et testing based on unseen examples (validation and testing sets)
 
 
 
@@ -61,7 +61,7 @@ First we need to care about the words representation (inputs and/or outputs)
 
 There is some analogy between image encoding through convolutional nets (resulting in a full connected layer), and words embeding through a neural network that learns the embeding vectors given a large text corpus. Yet there is one slight difference between the two, that is in the case of word embeding, the text corpus is fixed and embeded vectors are learnt only for that text corpus, whereas in the image encoding, training set is dynamic, ie the neural network learns encoding even for new images.
 
-(WE) captures the relationship between words such as analogies, similarities, or any other business logic that might be of interest. Here some of the key apsects of this concept:
+(WE) captures the relationship between words given the context in whitch they appear, such as analogies, similarities, or any other business logic that might be of interest. Here some of the key apsects of this concept:
 
 1. Based on the words corpus, identify/define  a space of features, called embeding space, that would best capture the relationships between words wihtin your domain of interest. [Mikolov et. al., 2013, Linguistic regularities in continous space word representation].
 
