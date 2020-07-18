@@ -286,9 +286,9 @@ A couple of algorithms maight be used to solve this optimization problem:
  
          where Y<sup>\<T<sub>y</sub>\></sup> is distributed among the T<sub>x</sub> words in the text corpus.
 
- - When the length of the sequence T<sub>y</sub> increases, Beam search results in some numerical underflow. This is due to the fact that we maximize the product of all the conditional probabilities. One way of fixing this numerical issue is to maximize the log product of these probabilities (as the log is monotonically ascendent function), whitch is equivalent to maximizing the sum of the log probabilities. 
+ - When the length of the sequence T<sub>y</sub> increases, Beam search results in some numerical underflow. This is due to the fact that we maximize the product of all the conditional probabilities. One way of fixing this numerical issue is to maximize the log likelihood (product of these probabilities, as the log is monotonically ascendent function), whitch is equivalent to maximizing the sum of the log probabilities. 
  
-   In addition, because beam search is better doing with short sequences vs. longer sequences, we also need to normalize the maximization goal by (1/T<sub>y<sup>α</sup></sub>) where α ranges between 0 and 1:
+   In addition, because beam search is better doing with short sequences vs. longer sequences, we also need to normalize the maximization goal by (1/T<sub>y<sup>α</sup></sub>) where α ranges between 0 and 1. (See also Laplacian smoothing, applies more to naive bayesian approach):
    
      argmax<sub>Y</sub> (1/T<sub>y<sup>α</sup></sub>) x Sum<sub>t=1</sub><sup>\<T<sub>y</sub>\></sup> log(P(Y<sup>\<t\></sup> / X, {Y<sup>\<1\></sup>,..., Y<sup>\<T<sub>y</sub>-1\></sup>}=[{uplet<sub>1</sub>}, {uplet<sub>2</sub>},...,  {uplet<sub>3xT<sub>x</sub></sub>}]))
  
