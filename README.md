@@ -75,7 +75,7 @@ There is some analogy between image encoding through convolutional nets (resulti
 
               - θ<sub>t</sub> : the target weights (as model parameters of the softmax unit);
 
-              - e<sub>c</sub> : the context embedding vector (as model parameters of the hidden layer);
+              - e<sub>c</sub> : the context embedding vector (as model parameters of the hidden layer. the number of hidden unit is a hyper parameters to fine-tune. Run pca on words corpura to calibrate the number of e<sub>c</sub> that optimally reduces the dimentionality of the vectors);
 
               - n : the corpus text size
 
@@ -111,8 +111,8 @@ There is some analogy between image encoding through convolutional nets (resulti
 
       3. GloVe algorithm (less popular than skip-gram or word2vec), but still interesting to consider [Pennington et. al., 2014. GloVe: global vectors for word representation]
       
-            - Given a sampled pair of words, context (c) and target (t), let X<sub>tc</sub> be the number of times that a target word t appears in the context c, that is how frequent t appears close to the context c.
-            - Learn embedding vectors e<sub>c</sub> and target vectors θ<sub>t</sub><sup>T</sup>, such as their innner product minimizes the square distance to the log frequency vector X<sub>tc</sub>. Gradient descent can be used to optimize this square distance:
+            - Given a sampled pair of words, context (c) and target (t), let X<sub>tc</sub> be the number of times that a target word t appears in the context c, that is how frequent t appears close to the context c (also called context-to-target co-occurence metric, this could be word to word, word to category, word to any abstract concept co-occurence).
+            - Learn embedding vectors e<sub>c</sub> and target vectors θ<sub>t</sub><sup>T</sup>, such as their innner product minimizes the square distance to the log frequency vector X<sub>tc</sub>. Gradient descent can be used to optimize this square distance (Private Note extend it to euclidean distance, the cosine is more likely to be normalized metric (not biaised by size) as contexts/targets in corpuras of diffenrent sizes ):
             
             - minimize the loss function: Sum<sub>t=1</sub> <sup>T<sub>x</sub></sup> (Sum<sub>c=1</sub> <sup>T<sub>x</sub></sup>f(X<sub>tc</sub>)(θ<sub>t</sub><sup>T</sup>e<sub>c</sub> + b<sub>t</sub> + b<sub>c</sub> - logX<sub>tc</sub>)<sup>2</sup>), where f is a weighting term that neutralize the case where X<sub>tc</sub>=0. In addition the choice of this heuristic f, should prevent from giving less frequent words too little weights and giving frequent words too much undue weights.
             
