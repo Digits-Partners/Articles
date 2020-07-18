@@ -25,6 +25,17 @@ Most of these situations are adressed through a supervised learning problem, ie 
 
 In this post we will focus on NLP techniques to illustrate how RNNs can be used to handle text content where inputs and outputs can be different lenghts across different examples. We will also see how RNNs can allow features sharing across diffrent positions of the text (elements learned from one piece of a text, can generalize to the subequent parts of same text).
 
+## Process review 
+Taxonomy construction
+Sequence Pre-processing (tokenizing, stemming, ...)
+Features extraction
+Prepare traing set (input/labeled output)
+Define the cost function
+based on the extracted features, train a neural network to learn model parameters through cost function optimization 
+Model evaluation et testing
+
+
+
 ## Representation and notations 
 
 First we need to care about the words representation (inputs and/or outputs)
